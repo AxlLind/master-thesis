@@ -1,0 +1,71 @@
+\documentclass[english]{kththesis}
+
+\input{includes}
+\input{acronyms}
+  
+\begin{document}
+
+\date{\today}
+\title{A security analysis of SecuritasHome Home Alarm System}
+\subtitle{[Todo subtitle]}
+\alttitle{En säkerhetsanalys av SecuritasHome hemlarmsystem}
+\altsubtitle{[Todo subtitle]}
+
+\authorsLastname{Lindeberg}
+\authorsFirstname{Axel}
+\email{alindeb@kth.se}
+\kthid{alindeb}
+\authorsSchool{\schoolAcronym{EECS}}
+\programcode{CDATE}
+
+% KTH Supervisor
+\supervisorAsLastname{Johnson}
+\supervisorAsFirstname{Pontus}
+\supervisorAsEmail{pontusj@kth.se}
+\supervisorAsKTHID{pontusj}
+\supervisorAsSchool{\schoolAcronym{EECS}}
+\supervisorAsDepartment{Division of Network and Systems Engineering}
+
+% External Supervisor
+%\supervisorBsLastname{[EFTERNAMN]}
+%\supervisorBsFirstname{[NAMN]}
+%\supervisorBsEmail{temp@fm.se}
+%\supervisorBsOrganization{Försvarsmakten}
+\hostcompany{Swedish Armed Forces (Försvarsmakten)}
+
+% KTH Examiner
+\examinersLastname{Lagerström}
+\examinersFirstname{Robert}
+\examinersEmail{robertl@kth.se}
+\examinersKTHID{robertl}
+\examinersSchool{\schoolAcronym{EECS}}
+\supervisorAsDepartment{Division of Network and Systems Engineering}
+
+\input{chapters/preface}
+
+\mainmatter
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\input{chapters/1-introduction}\cleardoublepage
+\input{chapters/2-background}\cleardoublepage
+\input{chapters/3-method}\cleardoublepage
+\input{chapters/4-todo}\cleardoublepage
+\input{chapters/5-results}\cleardoublepage
+\input{chapters/6-discussion}\cleardoublepage
+
+\bibliographystyle{myIEEEtran}
+\renewcommand{\bibname}{References}
+\addcontentsline{toc}{chapter}{References}
+\bibliography{references}
+
+\cleardoublepage
+\appendix
+\renewcommand{\chaptermark}[1]{\markboth{Appendix \thechapter\relax:\thinspace\relax#1}{}}
+\chapter{Something Extra}
+
+\label{pg:lastPageofMainmatter}
+
+\clearpage
+\section*{For DIVA}
+\divainfo{pg:lastPageofPreface}{pg:lastPageofMainmatter}
+
+\end{document}

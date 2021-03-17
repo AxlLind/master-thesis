@@ -1,0 +1,82 @@
+\titlepage
+\bookinfopage
+
+\frontmatter
+\setcounter{page}{1}
+
+% ---- English Abstract ----
+\begin{abstract}
+\markboth{\abstractname}{}
+% Keep in mind that most of your potential readers are only going to read your title and abstract. This is why it is important that the abstract give them enough information that they can decide is this document relevant to them or not. Otherwise the likely default choice is to ignore the rest of your document.
+% A abstract should stand on its own, i.e., no citations, cross references to the body of the document, acronyms must be spelled out, …
+% Write this early and revise as necessary. This will help keep you focused on what you are trying to do.
+
+% Write an abstract (250 and 350 words) with the following components:
+%  - What is the topic area? (optional) Introduces the subject area for the project.
+%  - Short problem statement
+%  - Why was this problem worth a Master’s thesis project? (i.e., why is the problem both significant and of a suitable degree of difficulty for a Master’s thesis project? Why has no one else solved it yet?)
+%  - How did you solve the problem? What was your method/insight?
+%  - Results/Conclusions/Consequences/Impact: What are your key results/conclusions? What will others do based upon your results? What can be done now that you have finished - that could not be done before your thesis project was completed? The presentation of the results should be the main part of the abstract.
+[TODO]
+
+\subsection*{Keywords}
+5-6 keywords
+% Choosing good keywords can help others to locate your paper, thesis, dissertation, … and related work.}
+% Choose the most specific keyword from those used in your domain, see for example:
+% ACM's Computing Classification System (2012) or
+% (2014) IEEE Taxonomy. 
+% Mechanics:
+% - The first letter of a keyword should be set with a capital letter and proper names should be capitalized as usual.
+% - Spell out acronyms and abbreviations.
+% - Avoid "stop words" - as they generally carry little or no information.
+% - List your keywords separated by commas (",").
+% Since you should have both English and Swedish keywords - you might think of ordering them in corresponding order (i.e., so that the nth word in each list correspond) - thus it would be easier to mechanically find matching keywords.
+
+\end{abstract}
+
+\cleardoublepage
+
+% ---- Swedish Abstract ----
+\selectlanguage{swedish}
+\begin{abstract}
+\markboth{\abstractname}{}
+% All theses at KTH are required to have an abstract in both English and Swedish.
+% If you are writing your thesis in English, you can leave this until the final version. If you are writing your thesis in Swedish then this should be done first – and you should revise as necessary along the way.
+% If you are writing your thesis in English, then this section can be a summary targeted at a more general reader. However, if you are writing your thesis in Swedish, then the reverse is true – your abstract should be for your target audience, while an English summary can be written targeted at a more general audience.
+% The Swedish sammanfattning need not be a literal translation of the english abstract.
+[TODO]
+
+\subsection*{Nyckelord}
+5-6 nyckelord
+
+\end{abstract}
+
+\cleardoublepage
+
+% ---- Acknowledgments ----
+\selectlanguage{english}
+\section*{Acknowledgments}
+\markboth{Acknowledgments}{}
+% It is nice to acknowledge the people that have helped you. It is
+% also necessary to acknowledge any special permissions that you have gotten –
+% for example getting permission from the copyright owner to reproduce a
+% figure. In this case you should acknowledge them and this permission here
+% and in the figure’s caption. \\
+% Note: If you do not have the copyright owner’s permission, then you cannot use any copyrighted figures/tables/… .
+
+[TODO]
+
+\acknowlegmentssignature
+
+% ---- Table of contents, etc ----
+\fancypagestyle{plain}{}
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{}} 
+\tableofcontents
+\markboth{\contentsname}{}
+
+\clearpage\listoffigures
+\clearpage\listoftables
+\clearpage\lstlistoflistings
+\clearpage\printglossary[type=\acronymtype, title={List of acronyms and abbreviations}]
+
+\label{pg:lastPageofPreface}

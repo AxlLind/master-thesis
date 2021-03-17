@@ -1,34 +1,32 @@
+\usepackage{todonotes}
+\usepackage[perpage,para,symbol]{footmisc}
+\usepackage[acronym, section=section, nonumberlist, nomain, nopostdot]{glossaries}
+% \usepackage[style=numeric,sorting=none,backend=biber]{biblatex}
 
-%%----------------------------------------------------------------------------
-%%   pcap2tex stuff
-%%----------------------------------------------------------------------------
-%\usepackage[dvipsnames*,svgnames]{xcolor} %% For extended colors
 \usepackage{tikz}
 \usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,calc,shapes}
-\usepackage{pgfmath}	% --math engine
-
-%% some additional useful packages
-\usepackage{rotating}		%% For text rotating
-\usepackage{array}		%% For table wrapping
-\usepackage{graphicx}	        %% Support for images
-\usepackage{float}		%% Suppor for more flexible floating box positioning
-\usepackage{mdwlist}            %% various list-related commands
-\usepackage{setspace}           %% For fine-grained control over line spacing
-\usepackage{listings}		%% For source code listing
-\usepackage{bytefield}          %% For packet drawings
-\usepackage{tabularx}		%% For simple table stretching
-\usepackage{multirow}	        %% Support for multirow colums in tables
-
-\usepackage{url}                %% Support for breaking URLs
+\usepackage{pgfmath}      % --math engine
+\usepackage{rotating}     % For text rotating
+\usepackage{array}        % For table wrapping
+\usepackage{graphicx}     % Support for images
+\usepackage{float}        % Support for more flexible floating box positioning
+\usepackage{mdwlist}      % various list-related commands
+\usepackage{setspace}     % For fine-grained control over line spacing
+\usepackage{listings}     % For source code listing
+\usepackage{bytefield}    % For packet drawings
+\usepackage{tabularx}     % For simple table stretching
+\usepackage{multirow}     % Support for multirow colums in tables
+\usepackage{url}          % Support for breaking URLs
 \usepackage{hyperref}
-\usepackage[all]{hypcap}	%% prevents an issue related to hyperref and caption linking
+\usepackage[all]{hypcap}  % prevents an issue related to hyperref and caption linking
 %% setup hyperref to use the darkblue color on links
 \hypersetup{colorlinks,breaklinks,
             linkcolor=darkblue,urlcolor=darkblue,
             anchorcolor=darkblue,citecolor=darkblue}
 
-
 %% Some definitions of used colors
+\setlength {\marginparwidth }{2cm} % leave some extra space for todo notes
+\hyphenpenalty=15000\tolerance=1000 % to reduce hyphenation
 \definecolor{darkblue}{rgb}{0.0,0.0,0.3} %% define a color called darkblue
 \definecolor{darkred}{rgb}{0.4,0.0,0.0}
 \definecolor{red}{rgb}{0.7,0.0,0.0}
@@ -37,9 +35,22 @@
 \definecolor{darkgrey}{rgb}{0.4,0.4,0.4}
 \definecolor{aqua}{rgb}{0.0, 1.0, 1.0}
 
-%% If you are going to include source code (or code snippets)
 \usepackage{listings}
-%%\usepackage[cache=false]{minted} %% For source code highlighting
-%%\usemintedstyle{borland}
+\usepackage[cache=false]{minted} %% For source code highlighting
+\usemintedstyle{borland}
 
 \usepackage{csquotes} % Recommended by biblatex
+
+
+%% definition of new command for bytefield package [maybe remove if i dont use the package]
+\newcommand{\colorbitbox}[3]{%
+	\rlap{\bitbox{#2}{\color{#1}\rule{\width}{\height}}}%
+	\bitbox{#2}{#3}}
+
+% todo: remove this
+\newenvironment{swedishnotes}%
+  {\begin{center}
+      \selectlanguage{swedish}
+      \color{blue}}%
+    {\end{center}\selectlanguage{english}
+    }
