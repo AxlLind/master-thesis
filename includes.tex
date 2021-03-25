@@ -1,22 +1,15 @@
 \usepackage[perpage,para,symbol]{footmisc}
 \usepackage[acronym, section=section, nonumberlist, nomain, nopostdot]{glossaries}
-% \usepackage[style=numeric,sorting=none,backend=biber]{biblatex}
-\usepackage{subcaption}
-
-\usepackage{tikz}
-\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,fit,positioning,calc,shapes}
-\usepackage{pgfmath}      % --math engine
-\usepackage{rotating}     % For text rotating
-\usepackage{array}        % For table wrapping
-\usepackage{graphicx}     % Support for images
-\usepackage{float}        % Support for more flexible floating box positioning
-\usepackage{mdwlist}      % various list-related commands
-\usepackage{setspace}     % For fine-grained control over line spacing
-\usepackage{listings}     % For source code listing
-\usepackage{bytefield}    % For packet drawings
-\usepackage{tabularx}     % For simple table stretching
-\usepackage{multirow}     % Support for multirow colums in tables
-\usepackage{url}          % Support for breaking URLs
+\usepackage{subcaption} % For subfigure support
+\usepackage{pgfmath}    % --math engine
+\usepackage{array}      % For table wrapping
+\usepackage{graphicx}   % Support for images
+\usepackage{float}      % Support for more flexible floating box positioning
+\usepackage{setspace}   % For fine-grained control over line spacing
+\usepackage{listings}   % For source code listing
+\usepackage{tabularx}   % For simple table stretching
+\usepackage{multirow}   % Support for multirow colums in tables
+\usepackage{url}        % Support for breaking URLs
 \usepackage{hyperref}
 \usepackage[all]{hypcap}  % prevents an issue related to hyperref and caption linking
 %% setup hyperref to use the darkblue color on links
@@ -25,7 +18,6 @@
             anchorcolor=darkblue,citecolor=darkblue}
 
 %% Some definitions of used colors
-\setlength {\marginparwidth }{2cm} % leave some extra space for todo notes
 \hyphenpenalty=15000\tolerance=1000 % to reduce hyphenation
 \definecolor{darkblue}{rgb}{0.0,0.0,0.3} %% define a color called darkblue
 \definecolor{darkred}{rgb}{0.4,0.0,0.0}
@@ -35,7 +27,6 @@
 \definecolor{darkgrey}{rgb}{0.4,0.4,0.4}
 \definecolor{aqua}{rgb}{0.0, 1.0, 1.0}
 
-\usepackage{listings}
 \usepackage[cache=false]{minted} %% For source code highlighting
 \usemintedstyle{borland}
 
