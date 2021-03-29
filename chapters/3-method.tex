@@ -1,10 +1,10 @@
 \chapter{Method} \label{ch:method}
-The following chapter described the method used in this report. It is based on a seven step process to penetration testing by Georgia Weidman \cite{weidman2014}. In the first part, this method is described. That is followed by how each of these seven steps were carried out on this thesis. Additionally, for the threat modeling phase a method described in \cite{guzman2017iot} was used. This threat modeling process is described below.
+The following chapter described the method used in this report. It is based on a seven step process to penetration testing by \textcite{weidman2014}. In the first part, this method is described. That is followed by how each of these seven steps were carried out on this thesis. Additionally, for the threat modeling phase a method outlined by \textcite{guzman2017iot} was used. This threat modeling process is described below.
 
 \section{Penetration Testing methodology}
-In their book \textit{Penetration testing: a hands-on introduction to hacking}, Georgia Weidman details a seven step process for penetration testing \cite{weidman2014}. Included in this method are the following steps:
+In their book \citetitle{weidman2014}, \citeauthor{weidman2014} details a seven step process for penetration testing \cite{weidman2014}. Included in this method are the following steps:
 \begin{enumerate}
-    \item \textit{Pre-engagement}. This step involves communicating with the party that ordered the penetration test to be done. The goal of this step is to make sure both parties are on the same page and understanding of how the tests will be done. Things to agree upon, according to Weidman, are scope, testing window, and clear authorization from the other party that you are legally allowed to assess the security of their system.
+    \item \textit{Pre-engagement}. This step involves communicating with the party that ordered the penetration test to be done. The goal of this step is to make sure both parties are on the same page and understanding of how the tests will be done. Things to agree upon, according to \citeauthor{weidman2014}, are scope, testing window, and clear authorization from the other party that you are legally allowed to assess the security of their system.
     \item \textit{Information Gathering}. This step includes what is known as \gls{OSINT}. \gls{OSINT} is the process of using publicly available sources of information to gather information about the system in question. These include search engines like Google, news articles, public government data, academic papers, etc \cite{steele2007open}. One might also use port scanners like Nmap\footnote{https://nmap.org/ | Accessed 2021-03-29} and other application scanners to gather information about the system. Additionally, one might sniff the traffic of the application to gain an understanding of it's behavior.
     \item \textit{Threat Modeling}. This step involves mapping out the components of the system, based on the information from the previous step. From that, you think of potential attacks and vulnerabilities of the system, their potential impact, and likelihood of success. More on this in \ref{ch:method:threat-modeling}.
     \item \textit{Vulnerability Analysis}. This step involves actively pentesting the system to discover vulnerabilities. This can be done for example through manually probing the system or by using vulnerability scanners like \textit{Metasploit}\footnote{https://www.metasploit.com/ | Accessed 2021-03-29}, \textit{Burp Suite}\footnote{https://portswigger.net/burp | Accessed 2021-03-29}, or \textit{Nessus}\footnote{https://www.tenable.com/products/nessus | Accessed 2021-03-29}.
@@ -14,29 +14,25 @@ In their book \textit{Penetration testing: a hands-on introduction to hacking}, 
 \end{enumerate}
 What follows is a description of how each step above was applied in this thesis.
 
-\subsubsection{Pre-engagement}
-According to Weidman's method, this step is done in collaboration with the client. In this project, however, there is no clear client except the author and perhaps KTH and Försvarsmakten. The scope and expectations were continuously discussed during the course of the project. The companies behind the system (see \ref{fig:company-structure}) were not informed of the security analysis until after the project was finalized. Securitas, the seller of the system was contacted multiple times via their support to verify the legality of security testing the system.
+\subsection{Pre-engagement}
+According to \citeauthor{weidman2014}'s method, the pre-engagement step is done in collaboration with the client. In this project, however, there is no clear client except the author and perhaps KTH and Försvarsmakten. The scope and expectations were continuously discussed during the course of the project. The companies behind the system (see \ref{fig:company-structure}) were not informed of the security analysis until after the project was finalized. Securitas, the seller of the system was contacted multiple times via their support to verify the legality of security testing the system.
 
-\subsubsection{Information Gathering}
+\subsection{Information Gathering}
 The information gathering phase was done in several steps, the first one being \gls{OSINT}. Initially, the model number of all devices were gathered from either physical labels on the peripherals or from Securitas' website\footnote{\url{https://www.securitashome.se/} | Accessed 2021-03-29}. Using the search engine Google, the devices and their manufacturer \textit{Climax Technology} were quickly identified. From their website much more information about the system could be found, such as how the peripherals communicate and their \gls{RF} protocol\footnote{\url{https://www.climax.com.tw/new/f1-features-new.php} | Accessed 2021-03-29}. An additional resource was finding each component's FCC ID\footnote{\url{https://www.fcc.gov/oet/ea/fccid} | Accessed 2021-03-29}, from which one can find user manuals, official testing documentation, and more via \textit{fccid.io}.
 
-\subsubsection{Threat Modeling}
+\subsection{Threat Modeling} \label{ch:method:threat-modeling}
 [TODO]
 
-\subsubsection{Vulnerability Analysis}
+\subsection{Vulnerability Analysis}
 [TODO]
 
-\subsubsection{Exploitation}
+\subsection{Exploitation}
 [TODO]
 
-\subsubsection{Post Exploitation}
+\subsection{Post Exploitation}
 [TODO]
 
 \subsubsection{Reporting}
-[TODO]
-
-
-\section{Threat modeling} \label{ch:method:threat-modeling}
 [TODO]
 
 \section{The STRIDE model} \label{ch:method:stride}

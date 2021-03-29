@@ -39,6 +39,8 @@
 %\supervisorBsOrganization{Försvarsmakten}
 \hostcompany{Försvarsmakten (Swedish Armed Forces)}
 
+\addbibresource{references.bib}
+
 \begin{document}
 
 \input{chapters/preface}
@@ -52,11 +54,7 @@
 \include{chapters/5-threat-model}
 \include{chapters/6-discussion}
 
-\bibliographystyle{myIEEEtran}
-\renewcommand{\bibname}{References}
-\addcontentsline{toc}{chapter}{References}
-\bibliography{references}
-\cleardoublepage
+\printbibliography[title=References]
 
 \appendix
 \renewcommand{\chaptermark}[1]{\markboth{Appendix \thechapter\relax:\thinspace\relax#1}{}}
