@@ -1,4 +1,27 @@
-\chapter{Method}\label{ch:methods}
-[TODO]
+\chapter{Method} \label{ch:method}
+The following chapter described the method used in this report. It is based on 
 
-\section{}
+\section{Penetration Testing methodology}
+In their book \textit{Penetration testing: a hands-on introduction to hacking}, Georgia Weidman details a seven step process for penetration testing \cite{weidman2014}. Included in this method are the following steps:
+\begin{enumerate}
+    \item \textit{Pre-engagement}. This step involves communicating with the party that ordered the penetration test to be done. The goal of this step is to make sure both parties are on the same page and understanding of how the tests will be done. Things to agree upon, according to Weidman, are scope, testing window, and clear authorization from the other party that you are legally allowed to assess the security of their system.
+    \item \textit{Information gathering}. This step includes what is known as \gls{OSINT}. \gls{OSINT} is the process of using publicly available sources of information to gather information about the system in question. These include search engines like Google, news articles, public government data, academic papers, etc \cite{steele2007open}. One might also use port scanners like Nmap\footnote{https://nmap.org/ | Accessed 2021-03-29} and other application scanners to gather information about the system. Additionally, one might sniff the traffic of the application to gain an understanding of it's behavior.
+    \item \textit{Threat modeling}. This step involves mapping out the components of the system, based on the information from the previous step. From that, you think of potential attacks and vulnerabilities of the system, their potential impact, and likelihood of success. More on this in \ref{ch:method:threat-modeling}.
+    \item \textit{Vulnerability analysis}. This step involves actively pentesting the system to discover vulnerabilities. This can be done through manually probing the system or by using vulnerability scanners like \textit{Metasploit}\footnote{https://www.metasploit.com/ | Accessed 2021-03-29}, \textit{Burp Suite}\footnote{https://portswigger.net/burp | Accessed 2021-03-29}, or \textit{Nessus}\footnote{https://www.tenable.com/products/nessus | Accessed 2021-03-29}.
+    \item \textit{Exploitation}. This step involves exploiting the vulnerabilities discovered in the previous step. By exploiting these, the goal is to perform some malicious act on the system, see \ref{ch:method:stride}.
+    \item \textit{Post exploitation}. After a successful exploit, this step involves analyzing the consequences of it. If the exploit involves access to a machine one might investigate the file system, look for possibilities of privilege escalation, etc. One asks how sever this successful exploit is to the overall security of the system.
+    \item \textit{Reporting}. This final step involves summarizing the findings to the interested party. Crucially, if the findings are to be publicized one should adhere to the principle of responsible disclosure.
+\end{enumerate}
+
+\section{Threat modeling} \label{ch:method:threat-modeling}
+
+\section{The STRIDE model} \label{ch:method:stride}
+STRIDE is a model of threats used to identify threats to the cybersecurity of an IT system \cite{stride}. It was initially developed by Praerit Garg and Loren Kohnfelder at Microsoft as part of their threat modeling technique. It is a widely used mnemonic in the security industry to aid in recognizing threats\footnote{https://docs.microsoft.com/en-us/previous-versions/commerce-server/ee823878(v=cs.20) | 2009-12-11, accessed 2021-03-29}. The following are the six properties that make up the acronym and a description of each:
+\begin{itemize}
+    \item \textbf{S}poofing identity. This means impersonating the identity of another user or component of the system. One example is obtaining a users login credentials and posing as that user.
+    \item \textbf{T}ampering with data. This means modifying data in the system in a malicious manner that you were perhaps not meant to modify. An example is unauthorized modifications to data stored in a database.
+    \item \textbf{R}epudiation. This means being able to claim you did not perform a certain action. An example would be to somehow be able to claim a transaction did not go through, thereby illegally receiving additional payment.
+    \item \textbf{I}nformation disclosure. This means exposing information or data to users who are not meant to have access to it. An example is a database leak.
+    \item \textbf{D}enial of service. This means denying access to a service. An example is making a web server unavailable to users by hitting it with heavy traffic, perhaps via a distributed \gls{DOS} attack.
+    \item \textbf{E}levation of privilege. This means an unprivileged user gaining privileged access to the system, allowing them access to features of the system they were not meant to. An example is exploiting a vulnerability in a program or kernel to get access as a more privileged user on the machine (like root).
+\end{itemize}
