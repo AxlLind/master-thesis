@@ -12,7 +12,6 @@ While the system is sold and is branded by SecuritasHome, they actually have lit
     \label{fig:company-structure}
 \end{figure}
 
-
 \section{Components and Software} \label{ch:system:components}
 This section describes all the components and software of the system. Initially, all hardware components are described and their functionality. Lastly, all software components of the system are described. Note that the system supports many additional hardware components. The ones outlined below are only the ones part of the starter-kit.
 
@@ -108,19 +107,23 @@ Note that only the \textit{Android} version of the mobile app is covered here, b
 The system can also be controlled and administrated via a mobile application, free to download via the \textit{Google Play Store}, called \textit{Securitas Connect}\footnotelink{https://play.google.com/store/apps/details?id=com.alarm.alarmmobile.android.securitas}{2021-03-30}. As explained previously, while the application is branded by Securitas, it is created and developed by \textit{Alarm.com}. The interface very closely resembles the web portal (see section above) and offers identical functionality, see figure \ref{fig:mobile-landing-page}.
 \begin{figure}[!ht]
     \centering
-    % TODO: CHANGE PICTURE
-    \includegraphics[width=\textwidth]{images/landing-page-web.png}
+    \includegraphics[width=0.5\textwidth]{images/mobile-landing-page.jpg}
     \caption{The android mobile app landing page.}
     \label{fig:mobile-landing-page}
 \end{figure}
 
 \subsubsection{Local web admin page}
-Beyond the two applications created by \textit{Alarm.com} described above, the main panel (see figure \ref{fig:main-panel}) hosts a web server on the local network. This feature is undocumented, and is presumably not meant to be used or found by the regular, non-tech-savvy consumer. The page is not hosted on any domain name, as far as the author is aware, and instead has to be accessed directly via the main panels local IP address on port 80. The landing page of this web server is quite simple and shows some basic information about the system such as the MAC address, IMEI number of the cellular communication, etc., see figure \ref{fig:local-landing-page}.
+Beyond the two applications created by \textit{Alarm.com} described above, the main panel (see figure \ref{fig:main-panel}) hosts a web server on the local network. This feature is undocumented, and is presumably not meant to be used or found by the regular, non-tech-savvy consumer. The page is not hosted on any domain name, as far as the author is aware, and instead has to be accessed directly via the main panels local IP address on port 80. The landing page of this web server is quite simple and shows some basic information about the system such as the MAC address, IMEI number of the cellular communication, etc., see figure \ref{fig:local-landing-page}. Beyond that, the site only has two actions the user can do. One is to perform a "\textit{Phone Test}", to presumably test the connection to the mobile 3G network, and the other is a "\textit{Network Scan}". Once the network scan has completed, the page shows a list of all reachable telecommunication towers, see figure \ref{fig:local-network-scan}.
 \begin{figure}[!ht]
     \centering
-    % TODO: CHANGE PICTURE
-    \includegraphics[width=\textwidth]{images/landing-page-web.png}
+    \includegraphics[width=\textwidth]{images/local-landing-page.png}
     \caption{The local web server's landing page.}
     \label{fig:local-landing-page}
 \end{figure}
-Additionally, the web page features a login page on the path \texttt{\$IP/login} which lets the user authenticate using \textit{HTTP Basic auth}. The credentials here are not tied to the users account, so presumably this is purely meant as a backdoor for \textit{Climax Technology} for debugging purposes, and not meant to be used by the user of the system.
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/local-network-scan.png}
+    \caption{A mobile network scan from the local web server.}
+    \label{fig:local-network-scan}
+\end{figure}
+Additionally, the web page features a login page on the path \texttt{/action/login} which lets the user authenticate using \textit{HTTP Basic auth}. The credentials here are not tied to the users account, so presumably this is purely meant as a backdoor for \textit{Climax Technology} for debugging purposes, and not meant to be used by the user of the system.
