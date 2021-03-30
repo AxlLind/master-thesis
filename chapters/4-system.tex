@@ -1,6 +1,18 @@
 \chapter{System Under Consideration} \label{ch:system}
 The following chapter gives a thorough explanation of the system under consideration of this thesis. The system in question is the \textit{SecuritasHome startpaket}, which is a home alarm system from Securitas. This starter-kit includes multiple hardware components, as well as access to software portals and mobile applications to control the system.
 
+\section{The companies behind the system}
+This section covers the structure of the three major companies behind the SecuritasHome Home Alarm System.
+
+While the system is sold and is branded by SecuritasHome, they actually have little to do with the actual hardware and software components of the platform, see figure \ref{fig:company-structure}. The hardware, related firmware, and proprietary radio wave protocol for communication between the components are manufactured and produced by a Taiwanese company called \textit{Climax Technology}. They are a major manufacturer of wireless home security systems. They produce hardware for home consumer security, creating everything from smart home alarm systems, and smart garage door openers, to smart medical accessories for seniors. The software, like the web portal and mobile applications as well as some additional firmware, are developed by an American company called \textit{Alarm.com}. They are strictly a B2B (business to business) company, meaning they do not sell or advertise their product directly to consumers. Instead they outsource the sale and advertisement of the system to other companies, one of them being Securitas. SecuritasHome merely sell, advertise, and put their brand on the product. Their main contribution to the system is in terms of real-time response to an alarm, connection to an alarm-central, and sending security personnel to respond to an active alarm breach. Consequently, when considering the cybersecurity of the system, Securitas is not strictly relevant. The two relevant parties are \textit{Alarm.com} and, considering the focus of this thesis, especially \textit{Climax Technology}.
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/company-structure.png}
+    \caption{The companies behind the system.}
+    \label{fig:company-structure}
+\end{figure}
+
+
 \section{Components and Software} \label{ch:system:components}
 This section describes all the components and software of the system. Initially, all hardware components are described and their functionality. Lastly, all software components of the system are described. Note that the system supports many additional hardware components. The ones outlined below are only the ones part of the starter-kit.
 
@@ -66,19 +78,49 @@ This device, see figure \ref{fig:door-contact}, senses when a door or window is 
 This device is a smoke detector, see figure \ref{fig:smoke-detector}. It communicated with the main panel over radio-waves and also includes a siren which triggers when it detects smoke.
 
 \subsection{Software} \label{ch:system:software}
+This section details the three software entry points from where the user can control the alarm and view it's state.
+
 \subsubsection{Web portal}
+The web portal is a webpage created by the American company \textit{Alarm.com}, see figure \ref{fig:company-structure}, hosted at \url{https://www.alarm.com/web/system/}. From the landing page, see figure \ref{fig:web-landing-page}, the user see the following:
+\begin{itemize}
+    \item If the system has any issues. This can be seen in the \textit{System OK} box in figure \ref{fig:web-landing-page}.
+    \item The state of each sensor of the system, like the door contact sensor (see figure \ref{fig:door-contact}).
+    \item The arm/disarm state of the system.
+\end{itemize}
+Crucially, from the landing page, the user can also easily arm or disarm the system, see figure \ref{fig:web-arming}. Beyond this, the user can also see a list of recent activity in the system, change users personal four digit pin codes, and create new users.
 
-\subsubsection{Mobile application}
-
-\subsubsection{Local web admin page}
-
-\section{The companies behind the system}
-This section covers the structure of the three major companies behind the SecuritasHome Home Alarm System.
-
-While the system is sold by SecuritasHome, they actually have little to do with the actual hardware and software components of the platform, see figure \ref{fig:company-structure}. The hardware, related firmware, and radio wave protocol are manufactured and produced by a Taiwanese company called \textit{Climax Technology}. They are a major manufacturer of hardware in the security industry, producing everything from smart home alarm systems, and garage door openers, to smart medical accessories for seniors. The software, like the web portal and mobile applications as well as some additional firmware, are developed by an American company called \textit{Alarm.com}. They are strictly a B2B (business to business) company, meaning they do not sell or market their product directly to consumers. Instead they outsource the sale and advertisement of the system to other companies, one of them being Securitas. SecuritasHome merely sell, advertise, and put their brand on the product. Their main contribution to the system is in terms of real-time response to an alarm, connection to an alarm-central, and sending security personnel to respond to an active alarm breach. Consequently, when considering the cybersecurity of the system, Securitas is not strictly relevant.
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.5\textwidth]{images/company-structure.png}
-    \caption{The companies behind the system.}
-    \label{fig:company-structure}
+    \includegraphics[width=\textwidth]{images/landing-page-web.png}
+    \caption{The web portal landing page.}
+    \label{fig:web-landing-page}
 \end{figure}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/arming-web.png}
+    \caption{Arming the alarm from the web portal.}
+    \label{fig:web-arming}
+\end{figure}
+
+\subsubsection{Mobile application}
+Note that only the \textit{Android} version of the mobile app is covered here, but presumably the iOS version would have similar or identical features.
+
+The system can also be controlled and administrated via a mobile application, free to download via the \textit{Google Play Store}, called \textit{Securitas Connect}\footnotelink{https://play.google.com/store/apps/details?id=com.alarm.alarmmobile.android.securitas}{2021-03-30}. As explained previously, while the application is branded by Securitas, it is created and developed by \textit{Alarm.com}. The interface very closely resembles the web portal (see section above) and offers identical functionality, see figure \ref{fig:mobile-landing-page}.
+\begin{figure}[!ht]
+    \centering
+    % TODO: CHANGE PICTURE
+    \includegraphics[width=\textwidth]{images/landing-page-web.png}
+    \caption{The android mobile app landing page.}
+    \label{fig:mobile-landing-page}
+\end{figure}
+
+\subsubsection{Local web admin page}
+Beyond the two applications created by \textit{Alarm.com} described above, the main panel (see figure \ref{fig:main-panel}) hosts a web server on the local network. This feature is undocumented, and is presumably not meant to be used or found by the regular, non-tech-savvy consumer. The page is not hosted on any domain name, as far as the author is aware, and instead has to be accessed directly via the main panels local IP address on port 80. The landing page of this web server is quite simple and shows some basic information about the system such as the MAC address, IMEI number of the cellular communication, etc., see figure \ref{fig:local-landing-page}.
+\begin{figure}[!ht]
+    \centering
+    % TODO: CHANGE PICTURE
+    \includegraphics[width=\textwidth]{images/landing-page-web.png}
+    \caption{The local web server's landing page.}
+    \label{fig:local-landing-page}
+\end{figure}
+Additionally, the web page features a login page on the path \texttt{\$IP/login} which lets the user authenticate using \textit{HTTP Basic auth}. The credentials here are not tied to the users account, so presumably this is purely meant as a backdoor for \textit{Climax Technology} for debugging purposes, and not meant to be used by the user of the system.
