@@ -1,6 +1,6 @@
 \usepackage[style=numeric,sorting=none,backend=biber]{biblatex}
 \usepackage[acronym, section=section, nonumberlist, nomain, nopostdot]{glossaries}
-\usepackage[perpage,para,symbol]{footmisc}
+\usepackage[perpage,symbol]{footmisc}
 \usepackage{tabularx}   % For additional table formatting
 \usepackage{subcaption} % For subfigure support
 \usepackage{pgfmath}    % --math engine
@@ -39,3 +39,5 @@
 
 % to get rolling footnote numbers
 \counterwithout{footnote}{chapter}
+
+\newcommand{\footnotelink}[2]{\footnote{\url{#1} | Accessed #2}}
