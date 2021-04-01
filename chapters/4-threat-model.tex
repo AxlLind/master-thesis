@@ -1,7 +1,7 @@
 \chapter{Threat Model} \label{ch:threat-model}
 This chapter contains the threat model established for the system under scrutiny, which was used to identify and document all threats to the system. The methodology and threat model technique is described in section \ref{ch:method:threat-modeling}.
 
-\section{Assets}
+\section{Identified Assets}
 As part of the first phase of our threat modeling technique, assets of the system were identified. These can be found in table \ref{tb:assets}.
 \begin{table}[!ht]
     \centering
@@ -22,7 +22,8 @@ As part of the first phase of our threat modeling technique, assets of the syste
     \label{tb:assets}
 \end{table}
 
-\section{Use cases}
+\section{Architecture Overview}
+\subsection{Use cases}
 \begin{table}[!ht]
     \centering
     \begin{tabularx}{\textwidth}{r X}
@@ -39,7 +40,12 @@ As part of the first phase of our threat modeling technique, assets of the syste
     \label{tb:use-cases}
 \end{table}
 
-\section{System Architecture}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=\textwidth]{images/system-overview.png}
+    \caption{Overview of the System Architecture}
+    \label{fig:system-overview}
+\end{figure}
 
 \subsection{System Technologies}
 \begin{table}[!ht]
@@ -60,10 +66,4 @@ As part of the first phase of our threat modeling technique, assets of the syste
     \label{tb:system-technologies}
 \end{table}
 
-\subsection{Overview of The System Architecture}
-\begin{figure}[!ht]
-    \centering
-    \includegraphics[width=\textwidth]{images/system-overview.png}
-    \caption{Overview of the System Architecture}
-    \label{fig:system-overview}
-\end{figure}
+\section{Decomposition of the system}
