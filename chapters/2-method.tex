@@ -22,8 +22,8 @@ According to \citeauthor{weidman2014}'s method, the pre-engagement step is done 
 \subsection{Information Gathering}
 The information gathering phase was done in several steps, the first one being \gls{OSINT}. Initially, the model number of all devices were gathered from either physical labels on the peripherals or from Securitas' website\footnotelink{https://www.securitashome.se/}{2021-03-29}. Using the search engine Google, the devices and their manufacturer \textit{Climax Technology} were quickly identified. From their website much more information about the system could be found, such as how the peripherals communicate and their \gls{RF} protocol\footnotelink{https://www.climax.com.tw/new/f1-features-new.php}{2021-03-29}. An additional resource was finding each component's FCC ID\footnotelink{https://www.fcc.gov/oet/ea/fccid}{2021-03-30}, from which one can find user manuals submitted to the FCC agency, official testing documentation, and more via \textit{fccid.io}.
 
-\subsection{Threat Modeling} \label{ch:method:threat-modeling}
-[TODO]
+\subsection{Threat Modeling}
+The threat modeling technique used in this thesis is one outlined in the book \citetitle{guzman2017iot}. In their book, authors \citeauthor{guzman2017iot}, outline a threat modeling technique for IoT devices \citeauthor{guzman2017iot}, which features a 6 step process. More on this in section \ref{ch:method:threat-modeling}.
 
 \subsection{Vulnerability Analysis}
 [TODO]
@@ -36,6 +36,17 @@ The information gathering phase was done in several steps, the first one being \
 
 \subsubsection{Reporting}
 [TODO]
+
+\section{Threat modeling for IoT devices} \label{ch:method:threat-modeling}
+In their book \citetitle{guzman2017iot}, authors \citeauthor{guzman2017iot}, outline a six step process for threat modeling IoT devices. This is the threat modeling technique used in this thesis, the result of which can be found in section \ref{ch:threat-model}. The six steps of the process are outlined below:
+\begin{enumerate}
+    \item \textit{Identify IoT assets}.
+    \item \textit{Create an IoT Device Architecture Overview}.
+    \item \textit{Decompose the IoT Device}.
+    \item \textit{Identify Threats}.
+    \item \textit{Document Threats}.
+    \item \textit{Rate the Threats}.
+\end{enumerate}
 
 \section{The STRIDE model} \label{ch:method:stride}
 STRIDE is a model of threats used to identify threats to the cybersecurity of an IT system \cite{stride}. It was initially developed by Praerit Garg and Loren Kohnfelder at Microsoft as part of their threat modeling technique. It is a widely used mnemonic in the security industry to aid in recognizing threats\footnotelink{https://docs.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats}{2021-03-29}. The following are the six properties that make up the acronym and a description of each:
