@@ -67,3 +67,23 @@ As part of the first phase of our threat modeling technique, assets of the syste
 \end{table}
 
 \section{Decomposition of the system}
+This section presents the results of the fourth step of the threat modeling technique. Lastly, all identified entry points of the system are listed.
+
+\subsection{Entry points}
+\begin{table}[!ht]
+    \centering
+    \begin{tabularx}{\textwidth}{l X}
+        \textbf{Entry point} & \textbf{Description}  \\
+        \hline
+        Local web admin page  & See section \ref{ch:system:software}. Provides very basic functionality but no control over the system. Has an undocumented login page via \textit{HTTP Basic Auth}. Data is transferred over HTTP on the local network. \\
+        Unknown application  & This is a completely undocumented process, listening on TCP port 58098. Closes the connection when sent data. Becomes unresponsive when sent certain data like \texttt{[]} and \texttt{\{\}} (presumably it crashes). \\
+        Main panel  & The physical device features an Ethernet port to connect to the local network, as well as a USB port for unknown purposes. It communicates with other devices over a 868 GHz proprietary \gls{RF} protocol. \\
+        3G telecommunication  & The device has a SIM-card and communicates over the 3G telecommunication network. \\
+        \gls{RF} communication  & The device talks to the other peripherals over a proprietary \gls{RF} protocol, called \textit{F1}\footnotelink{https://www.climax.com.tw/new/f1-features-new.php}{2021-04-02}. There seems to be little to no information available to the public about this protocol, other than it's operating frequency of 868 GHz. \\
+        USB port  & The device has a USB 2.0 Type-A connector. \\
+        Firmware  & The firmware of the system. \\
+        \hline
+    \end{tabularx}
+    \caption{The entry points of the main panel}
+    \label{tb:system-entry-points}
+\end{table}
