@@ -1,6 +1,13 @@
 \usepackage[style=numeric,sorting=none,backend=biber]{biblatex}
 \usepackage[acronym, section=section, nonumberlist, nomain, nopostdot]{glossaries}
 \usepackage[perpage,symbol]{footmisc}
+
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+
+
 \usepackage{tabularx}   % For additional table formatting
 \usepackage{subcaption} % For subfigure support
 \usepackage{pgfmath}    % --math engine
@@ -41,3 +48,4 @@
 \counterwithout{footnote}{chapter}
 
 \newcommand{\footnotelink}[2]{\footnote{\url{#1} | Accessed #2}}
+\newcolumntype{P}[1]{>{\endgraf\vspace*{-\baselineskip}}p{#1}}
