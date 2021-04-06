@@ -1,10 +1,10 @@
 \chapter{System Under Consideration} \label{ch:system}
-The following chapter gives a thorough explanation of the system under consideration of this thesis. The system in question is the \textit{SecuritasHome startpaket}, which is a home alarm system from Securitas. This starter-kit includes multiple hardware components, as well as access to software portals and mobile applications to control the system.
+The following chapter gives a thorough explanation of the system under consideration of this thesis. The system in question is the \textit{SecuritasHome startpaket}, which is a home alarm system from Securitas. This starter kit includes multiple hardware components, as well as access to software portals and mobile applications to control the system.
 
 \section{The companies behind the system}
 This section covers the structure of the three major companies behind the SecuritasHome Home Alarm System.
 
-While the system is sold and branded by SecuritasHome, they actually have little to do with the actual hardware and software components of the platform, see figure \ref{fig:company-structure}. The hardware, related firmware, and proprietary radio wave protocol for communication between the components are manufactured and produced by a Taiwanese company called \textit{Climax Technology}\footnotelink{https://www.climax.com.tw/}{2021-04-01}. They are a major manufacturer of wireless home security systems and produce hardware for home consumer security. They design everything from smart home alarm systems, and smart garage door openers, to smart medical accessories for seniors. The software, like the web portal and mobile applications as well as some additional firmware, are developed by an American company called \textit{Alarm.com}\footnotelink{https://alarm.com/}{2021-04-01}. They are strictly a B2B (business to business) company, meaning they do not sell or advertise their product directly to the end consumer. Instead they outsource the sale and advertisement of the system to partner companies, one of them being Securitas. SecuritasHome merely sell, advertise, and put their brand on the product. Their main contribution to the system is in terms of real-time response to an alarm, connection to an alarm-central, and sending security personnel to respond to an active alarm breach. Consequently, when considering the cybersecurity of the system, Securitas is not strictly relevant. The two relevant parties are \textit{Alarm.com} and, considering the focus of this thesis, especially \textit{Climax Technology}.
+While the system is sold and branded by SecuritasHome, they actually have little to do with the actual hardware and software components of the platform, see figure \ref{fig:company-structure}. The hardware, related firmware, and proprietary radio wave protocol for communication between the components are manufactured and produced by a Taiwanese company called \textit{Climax Technology}\footnotelink{https://www.climax.com.tw/}{2021-04-01}. They are a major manufacturer of wireless home security systems and produce hardware for home consumer security. They design everything from smart home alarm systems, and smart garage door openers, to smart medical accessories for seniors. The software, like the web portal and mobile applications as well as some additional firmware, is developed by an American company called \textit{Alarm.com}\footnotelink{https://alarm.com/}{2021-04-01}. They are strictly a B2B (business to business) company, meaning they do not sell or advertise their product directly to the end consumer. Instead, they outsource the sale and advertisement of the system to partner companies, one of them being Securitas. SecuritasHome merely sells, advertise, and put their brand on the product. Their main contribution to the system is in terms of real-time response to an alarm, connection to an alarm-central, and sending security personnel to respond to an active alarm breach. Consequently, when considering the cybersecurity of the system, Securitas is not strictly relevant. The two relevant parties are \textit{Alarm.com} and, considering the focus of this thesis, especially \textit{Climax Technology}.
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.7\textwidth]{images/company-structure.png}
@@ -13,10 +13,10 @@ While the system is sold and branded by SecuritasHome, they actually have little
 \end{figure}
 
 \section{Components and Software} \label{ch:system:components}
-This section describes all the components and software of the system. Initially, all hardware components are described and their functionality. Lastly, all software components of the system are described. Note that the system supports many additional hardware components. The ones outlined below are only the ones part of the starter-kit.
+This section describes all the components and software of the system. Initially, all hardware components are described and their functionality. Lastly, all software components of the system are described. Note that the system supports many additional hardware components. The ones outlined below are only the ones part of the starter kit.
 
 \subsection{Hardware components} \label{ch:system:hardware}
-The SecuritasHome starter-kit contains five hardware components, see figure \ref{fig:hardware-components}. These are described below. Note that the system supports many additional components, like smart locks for example. However, only the components included in the starter-kit are covered in this thesis.
+The SecuritasHome starter kit contains five hardware components, see figure \ref{fig:hardware-components}. These are described below. Note that the system supports many additional components, like smart locks for example. However, only the components included in the starter kit are covered in this thesis.
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[t]{0.33\textwidth}
@@ -59,7 +59,7 @@ The main panel, see figure \ref{fig:main-panel}, is the \textit{"brains"} of the
 \subsubsection{Remote Keypad}
 \textbf{Model number:} KPT-23-EL-F1 \\ % could also be KPT-23N-EL-F1, not sure
 \textbf{FCCID:} GX9KPF1 \\ % This says KPF but it looks the same..
-The remote keypad is a 16 button keypad used to arm and disarm the system using a personal 4 digit pin. See figure \ref{fig:remote-keypad}. This device talks to the main panel over radiowave communication.
+The remote keypad is a 16 button keypad used to arm and disarm the system using a personal 4 digit pin. See figure \ref{fig:remote-keypad}. This device talks to the main panel over radio wave communication.
 
 \subsubsection{Motion Detection Camera}
 \textbf{Model number:} VST-862-F1 \\
@@ -74,10 +74,10 @@ This device, see figure \ref{fig:door-contact}, senses when a door or window is 
 \subsubsection{Smoke Detector}
 \textbf{Model number:} SD-8EL \\
 \textbf{FCCID:} GX9SD8ELF1919 \\
-This device is a smoke detector, see figure \ref{fig:smoke-detector}. It communicated with the main panel over radio-waves and also includes a siren which triggers when it detects smoke.
+This device is a smoke detector, see figure \ref{fig:smoke-detector}. It communicated with the main panel over radio waves and also includes a siren that triggers when it detects smoke.
 
 \subsection{Software} \label{ch:system:software}
-This section details the three software entry points from where the user can control the alarm and view it's state.
+This section details the three software entry points from where the user can control the alarm and view its state.
 
 \subsubsection{Web portal}
 The web portal is a webpage created by the American company \textit{Alarm.com}, see figure \ref{fig:company-structure}, hosted at \url{https://www.alarm.com/web/system/}. From the landing page, see figure \ref{fig:web-landing-page}, the user can see the following:
@@ -87,7 +87,7 @@ The web portal is a webpage created by the American company \textit{Alarm.com}, 
     \item The arm/disarm state of the system.
     \item The latest photograph taken by the motion detection camera (see figure \ref{fig:motion-camera}).
 \end{itemize}
-Crucially, from the landing page, the user can also easily arm or disarm the system, see figure \ref{fig:web-arming}. Beyond this, the user can also see a list of recent activity in the system, change users personal four digit pin codes, and create new users.
+Crucially, from the landing page, the user can also easily arm or disarm the system, see figure \ref{fig:web-arming}. Beyond this, the user can also see a list of recent activity in the system, change the user's personal four-digit pin codes, and create new users.
 
 \begin{figure}[!ht]
     \centering
