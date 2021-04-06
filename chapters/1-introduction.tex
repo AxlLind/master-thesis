@@ -1,15 +1,4 @@
 \chapter{Introduction} \label{ch:intro}
-% Ofta kommer problemet och problemägaren från industrin där man önskar en specifik lösning på ett specifikt problem. Detta är ofta ”för smalt” definierat och ger ofta en ”för smal” lösning för att resultatet skall vara intressant ur ett mer allmänt ingenjörsperspektiv och med ”nya” erfarenheter som resultat. Fundera tillsammans med projektets intressenter (student, problemägare och akademi) hur man skulle kunna använda det aktuella problemet/förslaget för att undersöka någon ingenjörsaspekt och vars resultat kan ge ny eller kompletterande erfarenhet till ingenjörssamfundet och vetenskapen.
-% 
-% Examensarbetet handlar då om att ta fram denna nya ”erfarenhet” och på köpet löser man en del eller hela delen av det ursprungliga problemet.
-% 
-% Erfarenheten kommer ur en frågeställning som man i examensarbetet försöker besvara med tidigare och andras erfarenhet, egna eller modifierade metoder som ger ett resultat vilket kan användas för att diskutera ett svar på undersökningsfrågan.
-% 
-% Detta stycke skall alltså, förutom det ursprungliga ”smala” problemet, innehålla  vad som skall undersökas för att skapa ny ingenjörserfarenhet och/eller vetenskap.
-
-% This chapter describes the specific problem that this thesis addresses, the context of the problem, the goals of this thesis project, and outlines the structure of the thesis.
-% Give a general introduction to the area. (Remember to use appropriate references in this and all other sections)
-
 Home automation and the number of connected devices in our home has exploded in recent years. The number of \gls{IOT} devices especially have increased dramatically. It is predicted there will be about 38 billion of them by 2025 \cite{ieee-iot}. Many of \gls{IOT} devices are connected to the internet and that fraction is bound to increase given the rise of 5G technology. While these devices can do amazing things, everything from smart speakers to connected refrigerators, they are hardly known for their security. While this is well known in the IT-security community, the general non-tech-savvy consumer are perhaps not as aware of the security considerations when bringing an \gls{IOT} device into their home.
 
 A type of connected device that has become increasingly common in people's homes and which are becoming increasingly complex are smart Home Alarm Systems. They protect your house from intruders by sounding an alarm when an suspected intrusion has occurred. Often a security central is immediately notified and security personnel sent to the site to investigate. These systems can be incredibly complex and can include multiple external peripherals like motion detectors, surveillance cameras, smoke detectors, etc. In recent years their scope have expanded further and can now often control home automation systems like smart light bulbs, connected coffee machines, and even the lock to your door. Additionally, they can often be controlled remotely via mobile apps and web-portals. While these are undoubtedly useful features and undeniably provide some protection against physical intrusion one might wonder how secure these systems are against cyberattacks and much of a focus the cybersecurity of these systems is to the companies behind them. Given the large increase of features, have the vendors thought of all cybersecurity threats?
@@ -30,31 +19,24 @@ This report will try and answer the following research question:
     \item How can the vulnerabilities be exploited?
 \end{itemize}
 
-\noindent The security analysis presented in this thesis was performed on the following firmware version: \texttt{HPGW-G 0.0.2.23F BG\_U-ITR-F1-BD\_BL.A30.20181117}. This was the latest version at the time, which was the spring of 2021.
+\noindent The security analysis presented in this thesis was performed on the following firmware versions. These were the latest versions at the time, the spring of 2021:
+\begin{itemize}
+    \item Alarm.com firmware version: \texttt{193d}
+    \item Climax Technology firmware version: \texttt{HPGW-G 0.0.2.23F\\ BG\_U-ITR-F1-BD\_BL.A30.20181117}
+\end{itemize}
 
 \section{Background} \label{ch:intro:background}
-% Present the background for the area. Set the context for your project – so that your reader can understand both your project and this thesis. (Give detailed background information in Chapter 2 - together with related work.)
-% Sometimes it is useful to insert a system diagram here so that the reader knows what are the different elements and their relationship to each other. This also introduces the names/terms/… that you are going to use throughout your thesis (be consistent). This figure will also help you later delimit what you are going to do and what others have done or will do.
 [TODO]
 
 \section{Objectives} \label{ch:intro:objectives}
-% State the purpose  of your thesis and the purpose of your degree project. Describe who benefits and how they benefit if you achieve your goals. Include anticipated ethical, sustainability, social issues, etc. related to your project. (Return to these in your reflections in Section~\ref{sec:reflections}.)
-
-% Skilj på syfte och mål! Syfte är att förändra något till det bättre. I examensarbetet finns ofta två aspekter på detta. Dels vill problemägaren (företaget) få sitt problem löst till det bättre men akademin och ingenjörssamfundet vill också få nya erfarenheter och vetskap. Beskriv ett syfte som tillfredställer båda dessa aspekter.
-% Det finns även ett syfte till som kan vara värt att beakta och det är att du som student skall ta examen och att du måste bevisa, i ditt examensarbete, att du uppfyller examensmålen. Dessa mål sammanfaller med kursmålen för examensarbetskursen. 
 The objective of this thesis is to asses the security of the SecuritasHome Home Alarm System. In essence, the objective in terms of the degree project is to asses whether or not the system can be considered secure from an computer-security perspective. To achieve this a comprehensive security audit was made to the system, to investigate which attack vectors the system is vulnerable to. Considering the large attack surface of the system in question, given it's complexity and variety of features, some areas where delimited. More on this in \ref{ch:intro:delimitations}.
 
 From the perspective of the host organization, \textit{Försvarsmakten}, the objectives were to asses the security of home alarm systems in general, which have become increasingly common. While these systems are generally considered effective against physical intrusion, less is sure about their security when it comes to cyberattacks. The host organization wanted a thorough investigation into the IT-security of such a system.
 
 \section{Methodology} \label{ch:intro:methodology}
-% Här anger du vilken vilken övergripande undersökningsstrategi eller metod du skall använda för att försöka besvara den akademiska frågeställning och samtidigt lösa det e v ursprungliga problemet. Ofta kan man använda ”lösandet av ursprungsproblemet” som en fallstudie kring en akademisk frågeställning. Du undersöker någon intressant fråga i ”skarpt” läge och samlar resultat och erfarenhet ur detta.\\
-% Tänk på att företaget ibland måste stå tillbaka i sin önskan och förväntan på projektets resultat till förmån för ny eller kompletterande ingenjörserfarenhet och vetenskap (ditt examensarbete). Det är du som student som bestämmer och löser fördelningen mellan dessa två intressen men se till att alla är informerade.
-
-% Introduce your choice of methodology/methodologies and method/methods – and the reason why you chose them. Contrast them with and explain why you did not choose other methodologies or methods. (The details of the actual methodology and method you have chosen will be given in Chapter~\ref{ch:methods}. Note that in Chapter~\ref{ch:methods}, the focus could be research strategies, data collection, data analysis, and quality assurance.) In this section you should present your philosophical assumption(s), research method(s), and research approach(es).
 [TODO]
 
 \section{Delimitations} \label{ch:intro:delimitations}
-% Describe the boundary/limits of your thesis project and what you are explicitly not going to do. This will help you bound your efforts – as you have clearly defined what is out of the scope of this thesis project. Explain the delimitations. These are all the things that could affect the study if they were examined and included in the degree project.
 The system under consideration of this thesis is very complex. It consists many features, applications, and physical peripherals. As such, there is unfortunately not enough time within the scope of a degree project to exhaustively consider the full attack surface. Some things were also delimited due to legal reasons. As such the following major delimitations were done early in the project:
 
 \begin{itemize}

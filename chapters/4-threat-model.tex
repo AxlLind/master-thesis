@@ -21,7 +21,7 @@ As part of the first phase of our threat modeling technique, assets of the syste
         \\
         6  & Triggered alarm state
         \\
-        7  & Perhaps more?
+        7  & [TODO: Perhaps more?]
         \\ \hline
     \end{tabularx}
     \caption{The identified assets of the system}
@@ -47,7 +47,7 @@ As part of the architecture overview, all use cases of the system were identifie
         \\
         4  & The user receives a notification about a state change in the system
         \\
-        5  & Perhaps more?
+        5  & [TODO: Perhaps more?]
         \\ \hline
     \end{tabularx}
     \caption{Use cases of the system}
@@ -75,7 +75,7 @@ Table \ref{tb:system-technologies} contains all identified technologies present 
         \\ \hline
         F1 RF protocol  & A proprietary \gls{RF} protocol from the hardware manufacturer, Climax Technology. Uses 868 MHz frequency. This is an undocumented protocol, meaning no technical specification have been publicized.
         \\ \hline
-        Mongoose web server  & An open source web server, in C. Used by the main panel to host the local admin web page, version unknown.
+        Mongoose web server  & An open source web server, in C. Used by the main panel to host the local admin web page, version unknown. Information leaked via the HTTP \textit{Server} header on some endpoints.
         \\ \hline
     \end{tabularx}
     \caption{Technologies used in the system}
@@ -124,27 +124,32 @@ The following section contains all identified threats. These are categorized aft
     \item Spoof the remote keypad.
 \end{itemize}
 
-\subsection{Tampering with data}
+\subsection{Tampering with Data}
 \begin{itemize}
     \item [TODO]
 \end{itemize}
 
 \subsection{Repudiation}
 \begin{itemize}
-    \item [TODO]
+    \item Replay attack on messages in the RF protocol between devices.
 \end{itemize}
 
 \subsection{Information Disclosure}
 \begin{itemize}
-    \item [TODO]
+    \item Information leak in the packets of the \gls{RF} protocol.
+    \item Insecure or non-existent encryption in the \gls{RF} protocol.
+    \item Password sniffing on the local web server.
 \end{itemize}
 
 \subsection{Denial of Service}
 \begin{itemize}
-    \item [TODO]
+    \item Jamming of the RF protocol.
+    \item DoS attack on the local web server.
+    \item Crash the main panel or parts of the main panel.
+    \item Crash the external devices through the RF communication.
 \end{itemize}
 
-\subsection{Elevation of privilege}
+\subsection{Elevation of Privilege}
 \begin{itemize}
-    \item [TODO]
+    \item Password attack on the local web server login page.
 \end{itemize}
