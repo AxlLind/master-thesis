@@ -128,16 +128,20 @@ The following section contains all identified threats. These are categorized aft
     \item Spoof the smoke detector.
     \item Spoof the motion detection camera.
     \item Spoof the remote keypad.
+    \item Spoof the admin user on the main panel.
 \end{itemize}
 
 \subsection{Tampering with Data}
 \begin{itemize}
     \item Replay attack on the RF communication through message blocking via jamming.
+    \item Change and tamper with RF packets in transit.
+    \item Send valid RF packets to the main panel, triggering events, without proper authorization.
 \end{itemize}
 
 \subsection{Repudiation}
 \begin{itemize}
     \item Replay attack on messages in the RF protocol between devices.
+    \item Disrupt/disable logging of events.
 \end{itemize}
 
 \subsection{Information Disclosure}
@@ -150,6 +154,7 @@ The following section contains all identified threats. These are categorized aft
 \subsection{Denial of Service}
 \begin{itemize}
     \item Jamming of the RF protocol.
+    \item Stop the alarm from triggering until after you've left the premises.
     \item DoS attack on the local webserver.
     \item Crash the main panel or parts of the main panel.
     \item Crash the external devices through the RF communication.
@@ -158,6 +163,6 @@ The following section contains all identified threats. These are categorized aft
 \subsection{Elevation of Privilege}
 \begin{itemize}
     \item Password attack on the local webserver login page.
+    \item Send valid RF packets to the main panel without proper authorization.
+    \item Gain an authenticated connection to the main panel (perhaps via the TCP 58098 application).
 \end{itemize}
-
-\section{Documented threats}
