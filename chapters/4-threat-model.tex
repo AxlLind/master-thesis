@@ -5,25 +5,25 @@ This chapter contains the threat model established for the system under scrutiny
 As part of the first phase of our threat modeling technique, assets of the system were identified. These can be found in table \ref{tb:assets}.
 \begin{table}[!ht]
     \centering
-    \begin{tabularx}{\textwidth}{r X}
+    \begin{tabular}{l}
         \hline
-        \textbf{ID} & \textbf{Description}
+        \textbf{Asset description}
         \\ \hline
-        1  & Physical access to the house
+        Physical access to the house
         \\
-        2  & Personal four-digit pin
+        Personal four-digit pin
         \\
-        3  & Arm/disarm state of the system
+        Arm/disarm state of the system
         \\
-        4  & Door contact sensor state
+        Door contact sensor state
         \\
-        5  & Authentication to the admin web application
+        Authentication to the admin web application
         \\
-        6  & Triggered alarm state
+        Triggered alarm state
         \\
-        7  & [TODO: Perhaps more?]
+        TODO: Perhaps more?
         \\ \hline
-    \end{tabularx}
+    \end{tabular}
     \caption{The identified assets of the system}
     \label{tb:assets}
 \end{table}
@@ -35,21 +35,21 @@ This section contains an architecture overview of the system. Included in this a
 As part of the architecture overview, all use cases of the system were identified. These are the use cases a regular user would encounter when using the system normally. The use cases are documented in table \ref{tb:use-cases}.
 \begin{table}[!ht]
     \centering
-    \begin{tabularx}{\textwidth}{r X}
+    \begin{tabular}{l}
         \hline
-        \textbf{ID} & \textbf{Description}
+        \textbf{Use case}
         \\ \hline
-        1  & The user arms/disarms the system via the remote keypad panel
+        The user arms/disarms the system via the remote keypad panel
         \\
-        2  & The user arms/disarms the system via the web portal
+        The user arms/disarms the system via the web portal
         \\
-        3  & The user arms/disarms the system via the mobile app
+        The user arms/disarms the system via the mobile app
         \\
-        4  & The user receives a notification about a state change in the system
+        The user receives a notification about a state change in the system
         \\
-        5  & [TODO: Perhaps more?]
+        TODO: Perhaps more?
         \\ \hline
-    \end{tabularx}
+    \end{tabular}
     \caption{Use cases of the system}
     \label{tb:use-cases}
 \end{table}
