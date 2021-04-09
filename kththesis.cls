@@ -639,7 +639,10 @@
   \pagenumbering{arabic}
 }
 
-\newcommand{\divainfo}[2]{
+\newcommand{\divainfo}[1]{
+\label{pg:lastPageofMainmatter}
+\clearpage
+\section*{For DIVA}
 \thispagestyle{empty}
     \sffamily\tiny
     \begin{flushleft}
@@ -834,7 +837,7 @@
     % \ifx\@hostorganization\@empty\relax\else Host organization: \@hostorganization\\\fi
     "Other information": \{\\
       "Year": "\the\year",
-      "Number of pages": \char`\"\pageref{#1},\pageref{#2}\char`\"
+      "Number of pages": \char`\"\pageref{#1},\pageref{pg:lastPageofMainmatter}\char`\"
     \}\\
    \}
     \end{flushleft}
