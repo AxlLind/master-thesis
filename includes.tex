@@ -7,6 +7,7 @@
 \usepackage{booktabs}
 \usepackage{enumitem}
 
+\usepackage{xcolor}     % Remove after \todo has been removed
 \usepackage{tabularx}   % For additional table formatting
 \usepackage{subcaption} % For subfigure support
 \usepackage{pgfmath}    % --math engine
@@ -46,5 +47,8 @@
 % to get rolling footnote numbers
 \counterwithout{footnote}{chapter}
 
-\newcommand{\footnotelink}[2]{\footnote{\url{#1} | Accessed #2}}
 \newcolumntype{P}[1]{>{\endgraf\vspace*{-\baselineskip}}p{#1}}
+
+% custom macros
+\newcommand{\footnotelink}[2]{\footnote{\url{#1} | Accessed #2}}
+\newcommand{\todo}[0]{\colorbox{orange}{TODO}}
