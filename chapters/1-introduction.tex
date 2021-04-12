@@ -43,9 +43,9 @@ The system under consideration of this thesis is very complex. It consists of ma
     \item The external cloud servers, hosted by \textit{Alarm.com}. Legally, the security of these could not be assessed.
     \item The 3G wireless telecommunication. This was primarily due to the custom hardware required and the well-known security of this encrypted protocol.
     \item The security of additional peripherals not included in the starter kit, see \ref{ch:system:hardware}.
+    \item Any attack requiring \textit{physical access} to the system. The goal of the system is to prevent physical access to the home, and all components of the system are located inside. If an attacker has physical access to the system then the goal has already failed, therefore these types of attacks were not deemed interesting to explore. Note that this does not exclude attacks that only require physical proximity, like being outside the door for example.
     \item The iOS mobile application. This was delimited for two primary reasons, the major one being time and the other being the author not having easy access to an iOS device.
     \item The Android mobile application. [Note: Maybe?]
-    \item Any \textit{physical attack} on the system. The goal of the system is to prevent physical access to the home, and all components of the system are located inside. If an attacker has physical access to the system then the goal has already failed, therefore these types of attacks were not deemed interesting to explore.
 \end{itemize}
 
 \noindent Additionally, more fine-grained delimitations were done during the exploratory phase of the project. More on this in chapter \ref{ch:threat-model}.
@@ -56,6 +56,7 @@ This report is structured into the following chapters:
     \item Chapter \ref{ch:intro} (this chapter) gives an introduction into the thesis area and research question. Additionally, delimitations of the project are listed.
     \item Chapter \ref{ch:method} gives a thorough explanation of the methodology of this thesis. First the general penetration testing methodology applied in the project is explained and lastly the threat modeling technique is explained.
     \item Chapter \ref{ch:system} gives an overview of the system under consideration in this project, e.g all hardware and software components of the system, as well as an overview of the companies behind the system.
+    \item Chapter \ref{ch:related-work} lists all identified related work to this thesis. This, among others, includes a security analysis of a system based on the same hardware and partially the same firmware.
     \item Chapter \ref{ch:threat-model} presents a threat model of the system, more on the threat modeling technique used in section \ref{ch:method:threat-modeling}.
     \item Chapter \ref{ch:pentesting} explains of all penetration tests done against the system, potential background information about the attack, the result of test, as well as a discussion of the consequences and mitigations of them.
     \item TODO...
