@@ -1,4 +1,5 @@
 \chapter{Method} \label{ch:method}
+% TODO: Why these specific methods?
 The following chapter describes the method applied in this report. It is based on a seven-step process to penetration testing by \textcite{weidman2014}. In the first part, this method is described. That is followed by how each of these seven steps was applied in this thesis. Additionally, for the threat modeling phase, a method outlined by \textcite{guzman2017iot} was used. This threat modeling process is described below.
 
 \section{Penetration Testing methodology}
@@ -36,7 +37,7 @@ Threat modeling involves building a thorough picture of the system and identifyi
 \todo
 
 \section{Threat modeling for IoT devices} \label{ch:method:threat-modeling}
-In their book \citetitle{guzman2017iot}, authors \citeauthor{guzman2017iot}, outline a six-step process for threat modeling IoT devices. This is the threat modeling technique applied in this thesis, the result of which can be found in chapter \ref{ch:threat-model}. Here are the six steps of the process listed and described:
+In their book \citetitle{guzman2017iot}, authors \citeauthor{guzman2017iot}, outline a six-step process for threat modeling IoT devices. This is the threat modeling technique applied in this thesis, the result of which can be found in chapter \ref{ch:threat-model}. There are many different threat modeling techniques and this one was chosen due to it being customized specifically for IoT devices. Here are the six steps of the process listed and described:
 \begin{enumerate}
     \item \textit{Identify IoT assets}. This initial step involves identifying all assets of the system you have an interest in protecting. Essentially, this list should include anything that could be a target or something negatively affected by an attack. This aids in identifying what an attacker might focus on when crafting an attack or pentesting the system. Can be presented as a simple table describing each asset.
     \item \textit{Create an IoT Device Architecture Overview}. Once all assets have been identified, the next step involves creating an architecture diagram. In their method, \citeauthor{guzman2017iot} include three components of this architecture breakdown. First is a list of all use cases of the system. This details what a regular user can do with the system and the steps of each. Second is a diagram of all components of the system, and how they communicate (what protocol for example). Components can include everything from external cloud servers, network equipment, and individual processes. This is usually presented visually, in a diagram depicting the system. Lastly, a list of all identified technologies used in the system is included. This list should include everything from operating systems, network protocols, and known applications. Any additional information about each, such as version number, for example, should be included if known.
@@ -49,7 +50,7 @@ In their book \citetitle{guzman2017iot}, authors \citeauthor{guzman2017iot}, out
 \section{The STRIDE model} \label{ch:method:stride}
 STRIDE is a model of threats used to identify threats to the cybersecurity of an IT system \cite{stride}. It was initially developed by Praerit Garg and Loren Kohnfelder at Microsoft as part of their threat modeling technique. It is a widely used mnemonic in the security industry to aid in recognizing threats\footnotelink{https://docs.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats}{2021-03-29}. The following are the six properties that make up the acronym and a description of each:
 \begin{itemize}
-    \item \textbf{S}poofing Identity. This means impersonating the identity of another user or component of the system. One example is obtaining a user's login credentials and posing as that user.
+    \item \textbf{S}poofing Identity. This means impersonating the identity of another user or component of the system. One example is obtaining a user's login credentials and posing as that user, or performing a \textit{Man in the middle} attack and posing as an external trusted server.
     \item \textbf{T}ampering with Data. This means modifying data in the system in a malicious manner that you were perhaps not meant to modify. An example is unauthorized modifications to data stored in a database.
     \item \textbf{R}epudiation. This means being able to claim you did not perform a certain action. An example would be to somehow be able to claim a transaction did not go through, thereby illegally receiving additional payment.
     \item \textbf{I}nformation Disclosure. This means exposing information or data to users who are not meant to have access to it. An example is a database leak.
