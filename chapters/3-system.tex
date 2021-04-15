@@ -1,5 +1,12 @@
 \chapter{System Under Consideration} \label{ch:system}
-The following chapter gives a thorough explanation of the system under consideration of this thesis. The system in question is the \textit{SecuritasHome startpaket}, which is a home alarm system from Securitas. This starter kit includes multiple hardware components, as well as access to software portals and mobile applications to control the system.
+The following chapter gives a thorough explanation of the system under consideration of this thesis. Initially, the process of selecting what system to investigate is detailed. The system in question is the \textit{SecuritasHome startpaket}\footnotelink{https://www.securitashome.se/product.html/securitashome}{2021-04-14}, which is a home alarm system from Securitas. This starter kit includes multiple hardware components, as well as access to software portals and mobile applications to control the system.
+
+\section{Selection of the system} \label{ch:system:selection}
+When starting this project there were many aspects to consider when selecting what system to investigate. The first aspect was \textit{impact}. If the security was compromised what consequences would that have? Hacking a doorbell might lead to annoyances, while a smart pacemaker could have lethal consequences. Smart home alarm systems have the potential for a huge impact. Gaining physical access to a house without any alarm system is not difficult. It is as easy as breaking a window. People, therefore, rely on alarm systems to deter criminals and to immediately notify security personnel of a breach. The worst consequence of a cybersecurity vulnerability in such a system would be to completely disarm an armed system, thereby granting easy access to a property without getting caught.
+
+Another aspect to consider is \textit{vulnerability}, what is the likelihood to find a vulnerability in the system? There are several things to consider to answer that question. One is the reputation of the manufacturer. Are there many previously reported vulnerabilities on their systems? Are they known for caring about security and producing secure products? Another is how complex the system is. Does it have many features and components? How large is the system's attack surface? Smart home alarm systems have being increasingly complex, leading to a relatively large attack surface.
+
+Due to the above reasons, smart home alarm systems were deemed an excellent target for this thesis. The last thing to consider was therefore how feasible it is to procure the system, and if one has the legal rights to assess its security. In Sweden, the two largest companies in the industry are \textit{Verisure}\footnotelink{https://www.verisure.se/}{2021-04-15} and \textit{Sector Alarm}\footnotelink{https://www.sectoralarm.se/}{2021-04-15}. These systems were considered in the early phase of the project and both companies were contacted through their customer support to assess the feasibility to procure the system and if it would be legal to do a security evaluation of their system. Both companies, unfortunately, failed in this criteria. In Sweden, the law regarding cybersecurity evaluations, in simplified terms, says you have to have the owner's permission to security test a system (\todo source). Both companies stated that they would own the physical system and require that their technicians install the system on the premise. Both seemed unwilling to let you buy out the system, and were therefore ruled out. In the case of SecuritasHome, on the other hand, you own the system and pay a monthly fee to access their software platform. This, along with the aspects described above, made the SecuritasHome system a good target for security analysis.
 
 \section{The companies behind the system} \label{ch:system:companies}
 This section covers the structure of the three major companies behind the SecuritasHome Home Alarm System.
@@ -54,12 +61,12 @@ The SecuritasHome starter kit contains five hardware components, see figure \ref
 \subsubsection{Main Panel}
 \textbf{Model number:} HSGW-G8-3G/LTE-ZW-F1 433/868 \\
 \textbf{FCCID:} GX9HSGWF1919 \\
-The main panel, see figure \ref{fig:main-panel}, is the \textit{"brains"} of the system so to speak. It handles communication with all other hardware devices as well as external servers. Through radio wave communication it talks to the other hardware peripherals of the system. It uses 3G telecommunication to talk to the external servers.
+The main panel, see figure \ref{fig:main-panel}, is the \textit{"brains"} of the system so to speak. It handles communication with all other hardware devices as well as external servers. Through radio wave communication it communicates to all the other hardware peripherals of the system. It uses 3G telecommunication to communicate with the external servers.
 
 \subsubsection{Remote Keypad}
 \textbf{Model number:} KPT-23-EL-F1 \\ % could also be KPT-23N-EL-F1, not sure
 \textbf{FCCID:} GX9KPF1 \\ % This says KPF, not KPT, but it looks the same?
-The remote keypad is a 16 button keypad used to arm and disarm the system using a personal 4 digit pin. See figure \ref{fig:remote-keypad}. This device talks to the main panel over radio wave communication.
+The remote keypad is a 16 button keypad used to arm and disarm the system using a personal 4 digit pin. See figure \ref{fig:remote-keypad}. This device communicates with the main panel over radio wave communication.
 
 \subsubsection{Motion Detection Camera}
 \textbf{Model number:} VST-862-F1 \\
@@ -74,13 +81,13 @@ This device, see figure \ref{fig:door-contact}, senses when a door or window is 
 \subsubsection{Smoke Detector}
 \textbf{Model number:} SD-8EL \\
 \textbf{FCCID:} GX9SD8ELF1919 \\
-This device is a smoke detector, see figure \ref{fig:smoke-detector}. It communicated with the main panel over radio waves and also includes a siren that triggers when it detects smoke.
+This device is a smoke detector, see figure \ref{fig:smoke-detector}. It communicates with the main panel over radio waves and also includes a siren that triggers when it detects smoke.
 
 \subsection{Software} \label{ch:system:software}
 This section details the three software entry points from where the user can control the alarm and view its state.
 
 \subsubsection{Web portal}
-The web portal is a webpage created by the American company \textit{Alarm.com}, see figure \ref{fig:company-structure}, hosted at \url{https://www.alarm.com/web/system/}. From the landing page, see figure \ref{fig:web-landing-page}, the user can see the following:
+The web portal is a web page created by the American company \textit{Alarm.com}, see figure \ref{fig:company-structure}, hosted at \url{https://www.alarm.com/web/system/}. From the landing page, see figure \ref{fig:web-landing-page}, the user can see the following:
 \begin{itemize}
     \item If the system has any issues. This can be seen in the \textit{System OK} box in figure \ref{fig:web-landing-page}.
     \item The state of each sensor of the system, like the door contact sensor (see figure \ref{fig:door-contact}).
@@ -103,7 +110,7 @@ Crucially, from the landing page, the user can also easily arm or disarm the sys
 \end{figure}
 
 \subsubsection{Mobile application}
-The system can also be controlled and administrated via a mobile application, free to download via the \textit{Google Play Store}, called \textit{Securitas Connect}\footnotelink{https://play.google.com/store/apps/details?id=com.alarm.alarmmobile.android.securitas}{2021-03-30}. As explained previously, while the application is branded by Securitas, it is created and developed by \textit{Alarm.com}. The interface very closely resembles the web portal, see figure \ref{fig:mobile-landing-page}, and offers identical functionality, see figure \ref{fig:mobile-landing-page}. The only additional feature is real-time notification of any changes in the system. This could be for example the door contact sensor triggering, the main panel losing external power due to a power outage, or the alarm being armed/disarmed. See figure \ref{fig:mobile-notification}.
+The system can also be controlled and administrated via a mobile application, free to download via the \textit{Google Play Store}, called \textit{Securitas Connect}\footnotelink{https://play.google.com/store/apps/details?id=com.alarm.alarmmobile.android.securitas}{2021-03-30}, and from the \textit{App Store}, for iOS devices, under the same name\footnotelink{https://apps.apple.com/se/app/securitas-connect/id1111700213}{2021-04-14}. As explained previously, while the application is branded by Securitas, it is created and developed by \textit{Alarm.com}. The interface very closely resembles the web portal, see figure \ref{fig:mobile-landing-page}, and offers identical functionality, see figure \ref{fig:mobile-landing-page}. The only additional feature is real-time notifications of any changes in the system, done via push notifications to your mobile device. This could be for example the door contact sensor triggering, the main panel losing external power due to a power outage, or the alarm being armed/disarmed. See figure \ref{fig:mobile-notification}.
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.5\textwidth]{images/mobile-landing-page.png}
@@ -118,7 +125,7 @@ The system can also be controlled and administrated via a mobile application, fr
 \end{figure}
 
 \subsubsection{Local web admin page}
-Beyond the two applications created by \textit{Alarm.com} described above, the main panel (see figure \ref{fig:main-panel}) hosts a web server on the local network. This feature is undocumented, and is presumably not meant to be used or found by the regular, non-tech-savvy consumer. The page is not hosted on any domain name, as far as the author is aware, and instead has to be accessed directly via the main panels local IP address on port 80. The landing page of this web server, see figure \ref{fig:local-landing-page}, is quite simple and shows some basic information about the system such as the MAC address, IMEI number of the cellular communication, etc. Beyond that, the site only has two actions the user can do. One is to perform a "\textit{Phone Test}", to presumably test the connection to the mobile 3G network, and the other is a "\textit{Network Scan}". Once the network scan has completed, the page shows a list of all reachable telecommunication towers, see figure \ref{fig:local-network-scan}.
+Beyond the two applications created by \textit{Alarm.com} described above, the main panel (see figure \ref{fig:main-panel}) hosts a web server on the local network. This feature is undocumented and is presumably not meant to be used or found by the regular, non-tech-savvy consumer. The page is not hosted on any domain name, as far as the author is aware, and instead has to be accessed directly via the main panel's local IP address on port 80. The landing page of this web server, see figure \ref{fig:local-landing-page}, is quite simple and shows some basic information about the system such as the MAC address, IMEI number of the cellular communication, etc. Beyond that, the site only has two actions the user can do. One is to perform a "\textit{Phone Test}", to presumably test the connection to the mobile 3G network, and the other is a "\textit{Network Scan}". Once the network scan has completed, the page shows a list of all reachable telecommunication towers, see figure \ref{fig:local-network-scan}.
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=\textwidth]{images/local-landing-page.png}
@@ -143,4 +150,4 @@ Beyond the two applications created by \textit{Alarm.com} described above, the m
     \caption{A failed login attempt on the local web server.}
     \label{fig:local-login-denied}
 \end{figure}
-Additionally, the web page features an undocumented login page on the path \texttt{/action/login}, see figure \ref{fig:local-login-page}. This page lets the user authenticate using \textit{HTTP Basic auth}. The credentials here are not tied to the users account on the aforementioned web portal or mobile applications. Presumably this is purely meant as a backdoor for \textit{Climax Technology} for debugging purposes, and not meant to be used by the user of the system. If wrong credentials are entered the user is presented with a static message, saying they have the wrong password (see figure \ref{fig:local-login-denied}), providing zero additional functionality.
+Additionally, the web page features an undocumented login page on the path \texttt{/action/login}, see figure \ref{fig:local-login-page}. This page lets the user authenticate using \textit{HTTP Basic auth}. The credentials here are not tied to the user's account on the aforementioned web portal or mobile applications. Presumably, this is purely meant as a backdoor for the manufacturer for debugging purposes, and not meant to be used by the user of the system. If wrong credentials are entered the user is presented with a static message, saying they have the wrong password (see figure \ref{fig:local-login-denied}), providing zero additional functionality.
