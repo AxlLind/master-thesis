@@ -14,7 +14,7 @@ This section covers the structure of the three major companies behind the Securi
 While the system is sold and branded by SecuritasHome, they actually have little to do with the actual hardware and software components of the platform, see figure \ref{fig:company-structure}. The hardware, related firmware, and proprietary radio wave protocol for communication between the components are manufactured and produced by a Taiwanese company called \textit{Climax Technology}\footnotelink{https://www.climax.com.tw/}{2021-04-01}. They are a major manufacturer of wireless home security systems and produce hardware for home consumer security. They design everything from smart home alarm systems, and smart garage door openers, to smart medical accessories for seniors. The software, like the web portal and mobile applications as well as some additional firmware, is developed by an American company called \textit{Alarm.com}\footnotelink{https://alarm.com/}{2021-04-01}. They are strictly a B2B (business to business) company, meaning they do not sell or advertise their product directly to the end consumer. Instead, they outsource the sale and advertisement of the system to partner companies, one of them being Securitas. SecuritasHome merely sells, advertise, and put their brand on the product. Their main contribution to the system is in terms of real-time response to an alarm, connection to an alarm-central, and sending security personnel to respond to an active alarm breach. Consequently, when considering the cybersecurity of the system, Securitas is not strictly relevant. The two relevant parties are \textit{Alarm.com} and, considering the focus of this thesis, especially \textit{Climax Technology}.
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.7\textwidth]{images/company-structure.png}
+    \includegraphics[width=0.7\textwidth]{images/3-system/company-structure.png}
     \caption{The companies behind the system.}
     \label{fig:company-structure}
 \end{figure}
@@ -27,31 +27,31 @@ The SecuritasHome starter kit contains five hardware components, see figure \ref
 \begin{figure}[!ht]
     \centering
     \begin{subfigure}[t]{0.33\textwidth}
-        \includegraphics[height=2.15in]{images/main-panel.png}
+        \includegraphics[height=2.15in]{images/3-system/main-panel.png}
         \caption{Main Panel}
         \label{fig:main-panel}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.33\textwidth}
-        \includegraphics[height=2.15in]{images/keypad.png}
+        \includegraphics[height=2.15in]{images/3-system/keypad.png}
         \caption{Remote Keypad}
         \label{fig:remote-keypad}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.33\textwidth}
-        \includegraphics[height=2.15in]{images/camera.png}
+        \includegraphics[height=2.15in]{images/3-system/camera.png}
         \caption{Motion Detection Camera}
         \label{fig:motion-camera}
     \end{subfigure}
     
     \begin{subfigure}[t]{0.33\textwidth}
-        \includegraphics[height=2.15in]{images/door-contact.png}
+        \includegraphics[height=2.15in]{images/3-system/door-contact.png}
         \caption{Door Contact Sensor}
         \label{fig:door-contact}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.33\textwidth}
-        \includegraphics[height=2.15in]{images/smoke-detector.png}
+        \includegraphics[height=2.15in]{images/3-system/smoke-detector.png}
         \caption{Smoke Detector}
         \label{fig:smoke-detector}
     \end{subfigure}
@@ -98,13 +98,13 @@ Crucially, from the landing page, the user can also easily arm or disarm the sys
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\textwidth]{images/landing-page-web.png}
+    \includegraphics[width=\textwidth]{images/3-system/landing-page-web.png}
     \caption{The web portal landing page.}
     \label{fig:web-landing-page}
 \end{figure}
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\textwidth]{images/arming-web.png}
+    \includegraphics[width=\textwidth]{images/3-system/arming-web.png}
     \caption{Arming the alarm from the web portal.}
     \label{fig:web-arming}
 \end{figure}
@@ -113,13 +113,13 @@ Crucially, from the landing page, the user can also easily arm or disarm the sys
 The system can also be controlled and administrated via a mobile application, free to download via the \textit{Google Play Store}, called \textit{Securitas Connect}\footnotelink{https://play.google.com/store/apps/details?id=com.alarm.alarmmobile.android.securitas}{2021-03-30}, and from the \textit{App Store}, for iOS devices, under the same name\footnotelink{https://apps.apple.com/se/app/securitas-connect/id1111700213}{2021-04-14}. As explained previously, while the application is branded by Securitas, it is created and developed by \textit{Alarm.com}. The interface very closely resembles the web portal, see figure \ref{fig:mobile-landing-page}, and offers identical functionality, see figure \ref{fig:mobile-landing-page}. The only additional feature is real-time notifications of any changes in the system, done via push notifications to your mobile device. This could be for example the door contact sensor triggering, the main panel losing external power due to a power outage, or the alarm being armed/disarmed. See figure \ref{fig:mobile-notification}.
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.5\textwidth]{images/mobile-landing-page.png}
+    \includegraphics[width=0.5\textwidth]{images/3-system/mobile-landing-page.png}
     \caption{The android mobile app landing page.}
     \label{fig:mobile-landing-page}
 \end{figure}
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.5\textwidth]{images/mobile-notification.png}
+    \includegraphics[width=0.5\textwidth]{images/3-system/mobile-notification.png}
     \caption{A notification in the mobile app about a state change.}
     \label{fig:mobile-notification}
 \end{figure}
@@ -128,25 +128,25 @@ The system can also be controlled and administrated via a mobile application, fr
 Beyond the two applications created by \textit{Alarm.com} described above, the main panel (see figure \ref{fig:main-panel}) hosts a web server on the local network. This feature is undocumented and is presumably not meant to be used or found by the regular, non-tech-savvy consumer. The page is not hosted on any domain name, as far as the author is aware, and instead has to be accessed directly via the main panel's local IP address on port 80. The landing page of this web server, see figure \ref{fig:local-landing-page}, is quite simple and shows some basic information about the system such as the MAC address, IMEI number of the cellular communication, etc. Beyond that, the site only has two actions the user can do. One is to perform a "\textit{Phone Test}", to presumably test the connection to the mobile 3G network, and the other is a "\textit{Network Scan}". Once the network scan has completed, the page shows a list of all reachable telecommunication towers, see figure \ref{fig:local-network-scan}.
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\textwidth]{images/local-landing-page.png}
+    \includegraphics[width=\textwidth]{images/3-system/local-landing-page.png}
     \caption{The local web server's landing page.}
     \label{fig:local-landing-page}
 \end{figure}
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\textwidth]{images/local-network-scan.png}
+    \includegraphics[width=\textwidth]{images/3-system/local-network-scan.png}
     \caption{A mobile network scan from the local web server.}
     \label{fig:local-network-scan}
 \end{figure}
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\textwidth]{images/local-login-page.png}
+    \includegraphics[width=\textwidth]{images/3-system/local-login-page.png}
     \caption{The local web server's HTTP Basic Auth login page.}
     \label{fig:local-login-page}
 \end{figure}
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=\textwidth]{images/local-login-denied.png}
+    \includegraphics[width=\textwidth]{images/3-system/local-login-denied.png}
     \caption{A failed login attempt on the local web server.}
     \label{fig:local-login-denied}
 \end{figure}
