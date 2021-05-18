@@ -8,10 +8,10 @@ with open(FILE, "rb") as f:
   signal = [b if b < 128 else b - 256 for b in f.read()]
 
 for i, offset in enumerate(SIGNAL_OFFSETS):
-  bit_coords = range(offset, offset + SIGNAL_LEN, SYMBOL_LEN)
-  bit_str = "".join(['1' if signal[i] > 0 else '0' for i in bit_coords])
-  print(f"Packet {str(i).ljust(2)} =", hex(int(bit_str, 2)))
-  plt.scatter(bit_coords, [0 for _ in bit_coords], c="red")
+  xs = range(offset, offset + SIGNAL_LEN, SYMBOL_LEN)
+  plt.scatter(xs, [0 for _ in xs], c="red")
+  bits = "".join(['1' if signal[x] > 0 else '0' for x in xs])
+  print(f"Packet {str(i).ljust(2)} =", hex(int(bits, 2)))
 
 plt.plot(signal)
 plt.show()
