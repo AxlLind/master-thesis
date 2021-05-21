@@ -2,12 +2,12 @@
 This chapter describes all identified related works done in the area and specifically against the hardware used in the system. Very little has been published regarding the cybersecurity of this system, as far as the author is aware. Two sources that explore systems based on the hardware from the same manufacturer, Climax Technology, have been identified. Additionally, a student thesis was done on a similar system but from a different manufacturer. These are presented below.
 
 \section{OWASP IoT Top 10}
-The OWASP top ten for web vulnerabilities is one of the most used sources of the most common web vulnerabilities \cite{owasp-www-top10}. The OWASP Foundation, the creators of the list, even calls it \textit{"Globally recognized by developers as the first step towards more secure coding"}\footnotelink{https://owasp.org/www-project-top-ten/}{2021-05-21}. OWASP also maintains a list of the top ten most common vulnerabilities for IoT systems \cite{owasp-iot-top10}. The latest revision was released in \citeyear{owasp-iot-top10}. This list is of high importance to this report, as the system in question is an IoT system. The top ten vulnerabilities for IoT systems, according to OWASP's report are the following, in order of importance:
+The OWASP top ten for web vulnerabilities is one of the most used sources of the most common web vulnerabilities \cite{owasp-www-top10}. The OWASP Foundation, the creators of the list, even calls it \textit{"Globally recognized by developers as the first step towards more secure coding"}\footnotelink{https://owasp.org/www-project-top-ten/}{2021-05-21}. OWASP also maintains a list of the top ten most common vulnerabilities for IoT systems \cite{owasp-iot-top10}. The latest revision was released in \citeyear{owasp-iot-top10}. This list is of highly relevant to this report, as the system in question is an IoT system. The top ten vulnerabilities for IoT systems, according to OWASP's report are the following, in order of importance:
 \begin{enumerate}
     \item \textit{Weak, Guessable, or Hardcoded Passwords}. This includes passwords that can be easily bruteforced, are publically. available, or unchangeable. Famously the MIRAI botnet, which mostly included IoT devices, managed to hack over half a million devices by testing just 61 default credentials \cite{understanding-mirai}.
     % Use of easily bruteforced, publicly available, or unchangeable credentials, including backdoors in firmware or client software that grants unauthorized access to deployed systems.
     
-    \item \textit{Insecure Network Services}. Often unneeded network services will be left open on IoT devices, even when in production. Commonly, these are used during development but are never removed when the device is shipped. An example is open telnet services, or ssh, being left open, leaving a backdoor open for the manufacturer. However, these network services also open the device up to a whole slew of potential vulnerabilities and are often completely unnecessary for the functionality of the IoT system. A real world example of this is again the MIRAI botnet, which scanned IP ranges for devices with telnet services hosted on port 21 or 2121 \citeauthor{understanding-mirai}.
+    \item \textit{Insecure Network Services}. Often unneeded network services will be left open on IoT devices, even when in production. Commonly, these are used during development but are never removed when the device is shipped. An example is open telnet services, or ssh, being left open, leaving a backdoor open for the manufacturer. However, these network services also open the device up to a whole slew of potential vulnerabilities and are often completely unnecessary for the functionality of the IoT system. A real world example of this is again the MIRAI botnet, which scanned IP ranges for devices with telnet services hosted on port 21 or 2121 \cite{understanding-mirai}.
     % Unneeded or insecure network services running on the device itself, especially those exposed to the internet, that compromise the confidentiality, integrity/authenticity, or availability of information or allow unauthorized remote control…
     
     \item \textit{Insecure Ecosystem Interfaces}. Many IoT devices are much more than the device itself. There is often an entire infrastructure behind it to control and interact with the system, such as mobile application or a website, with an accompanying backend API server. Vulnerabilities in these systems can lead to the IoT device itself being compromised.
@@ -16,22 +16,22 @@ The OWASP top ten for web vulnerabilities is one of the most used sources of the
     \item \textit{Lack of Secure Update Mechanism}. To add new features and to fix security problems, updating the firmware of IoT devices is unavoidable. However, over-the-air (OTA) firmware updates introduces an additional attack vector and can have many potential security issues. This can include lack of firmware validation on the device 
     % Lack of ability to securely update the device. This includes lack of firmware validation on device, lack of secure delivery (un-encrypted in transit), lack of anti-rollback mechanisms, and lack of notifications of security changes due to updates.
     
-    \item \textit{Use of Insecure or Outdated Components}.
+    \item \textit{Use of Insecure or Outdated Components}. This means using old versions of libraries and components that themselves are vulnerable, which in turn can compromise the security of the system as a whole. This can include everything from insecure versions of operating systems, insecure customization of the OS, third-party software, and hardware components from higher up in the supply chain.
     % Use of deprecated or insecure software components/libraries that could allow the device to be compromised. This includes insecure customization of operating system platforms, and the use of third-party software or hardware components from a compromised supply chain.
     
-    \item \textit{Insufficient Privacy Protection}.
+    \item \textit{Insufficient Privacy Protection}. This refers to the user's personal information being stored in an insecure way. Either on the IoT system itself or in the larger ecosystem.
     % User’s personal information stored on the device or in the ecosystem that is used insecurely, improperly, or without permission.
     
-    \item \textit{Insecure Data Transfer and Storage}.
+    \item \textit{Insecure Data Transfer and Storage}. Lack of encryption or proper access control, both in transit and in storage. This can, once again, be both on the IoT device and anywhere else in the larger ecosystem.
     % Lack of encryption or access control of sensitive data anywhere within the ecosystem, including at rest, in transit, or during processing.
     
-    \item \textit{Lack of Device Management}.
+    \item \textit{Lack of Device Management}. This includes lack of secure asset management, update management, secure decommissioning of the system, proper monitoring of the system, as well as capabilities to respond to a security issue.
     % Lack of security support on devices deployed in production, including asset management, update management, secure decommissioning, systems monitoring, and response capabilities.
     
-    \item \textit{Insecure Default Settings}.
+    \item \textit{Insecure Default Settings}. This refers to the device being sold with insecure default settings. Often the user is never prompted or encouraged to change these insecure defaults. 
     % Devices or systems shipped with insecure default settings or lack the ability to make the system more secure by restricting operators from modifying configurations.
     
-    \item \textit{Lack of Physical Hardening}.
+    \item \textit{Lack of Physical Hardening}. During development, debug hardware interfaces are used. However, a common vulnerability is not removing these before shipping the product. This can include open JTAG or UART interfaces on the circuitboard, allowing for extraction of the firmware or even terminal access to the system over a serial interface. Often these vulnerabilities require physical access to the system. However, they can be used to extract valuable information which can help an attacker in developing remote exploits.
     % Lack of physical hardening measures, allowing potential attackers to gain sensitive information that can help in a future remote attack or take local control of the device
 \end{enumerate}
 
