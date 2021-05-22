@@ -47,6 +47,30 @@ In their book \citetitle{guzman2017iot}, authors \citeauthor{guzman2017iot}, out
     \item \textit{Rate the Threats}. For each documented threat, one rate its severity. The authors propose using a system like DREAD to give a score to each threat, based on a few different criteria like damage potential and reproducibility.
 \end{enumerate}
 
+\section{OWASP IoT Top 10} \label{ch:method:owasp}
+The OWASP top ten for web vulnerabilities is one of the most used sources of the most common web vulnerabilities \cite{owasp-www-top10}. The OWASP Foundation, the creators of the list, calls it \textit{"Globally recognized by developers as the first step towards more secure coding"}\footnotelink{https://owasp.org/www-project-top-ten/}{2021-05-21}. OWASP also publishes a list of the top ten most common vulnerabilities for IoT systems \cite{owasp-iot-top10}. The latest revision was released in \citeyear{owasp-iot-top10}. This list is of highly relevant to this report, as the system in question is an IoT system. The top ten vulnerabilities for IoT systems, according to OWASP's report are the following, in order of importance:
+\begin{enumerate}
+    \item \textbf{Weak, Guessable, or Hardcoded Passwords}. This includes passwords that can be easily bruteforced, are publicly. available, or unchangeable. Famously the MIRAI botnet, which mostly included IoT devices, managed to recruit over half a million devices to its botnet by testing just 60 default credentials \cite{understanding-mirai}.
+    
+    \item \textbf{Insecure Network Services}. Often unneeded network services will be left open on IoT devices, even after they are shipped to customers. Commonly, these are used during development but are never removed when the device is shipped. An example is open telnet services or ssh being left open, leaving a backdoor open for the manufacturer. However, these network services also open the device up to a whole slew of potential vulnerabilities and are often completely unnecessary for the functionality of the IoT system. A real world example of this is again the MIRAI botnet, which scanned IP ranges for devices with telnet services hosted on port 21 or 2121 \cite{understanding-mirai}.
+    
+    \item \textbf{Insecure Ecosystem Interfaces}. Many IoT systems are much more than just the device itself. There is often an entire infrastructure behind it to control and interact with the system, such as mobile application or a website, with an accompanying backend API server. Vulnerabilities anywhere in this ecosystem can lead to the security of the IoT device itself being compromised.
+    
+    \item \textbf{Lack of Secure Update Mechanism}. To add new features and to fix security issues, updating the firmware of IoT devices is often unavoidable. However, over-the-air (OTA) firmware updates adds an additional attack vector and can introduce many potential security issues. This can include the device not validating the firmware it receives, delivering the firmware unencrypted in transit, a lack of a mechanism to prevent rolling back changes, and a lack of notifications of security changes due to updates.
+    
+    \item \textbf{Use of Insecure or Outdated Components}. This means using old versions of libraries and components that themselves are vulnerable. These can then in turn compromise the security of the system as a whole. This can include everything from insecure versions of operating systems, insecure customization of the OS, third-party software, and insecure hardware components from higher up in the supply chain.
+    
+    \item \textbf{Insufficient Privacy Protection}. This refers to the user's personal information being stored in an insecure way. Either on the IoT system itself or in the larger ecosystem.
+    
+    \item \textbf{Insecure Data Transfer and Storage}. Lack of encryption or proper access control, both in transit and in storage. This can, once again, be both on the IoT device and anywhere else in the larger ecosystem.
+    
+    \item \textbf{Lack of Device Management}. This includes lack of secure asset management, update management, secure decommissioning of the system, proper monitoring of the system, as well as capabilities to respond to a security issue.
+    
+    \item \textbf{Insecure Default Settings}. This refers to the device being sold with insecure default settings. Often the user is never prompted or encouraged to change these insecure defaults.
+    
+    \item \textbf{Lack of Physical Hardening}. During development, debug hardware interfaces are used. However, a common vulnerability is not removing these before shipping the product. This can include open JTAG or UART interfaces on the circuit board, allowing for extraction of the firmware or even terminal access to the system over a serial interface. Often these vulnerabilities require physical access to the system. However, they can be used to extract valuable information which can help an attacker in developing remote exploits.
+\end{enumerate}
+
 \section{The STRIDE model} \label{ch:method:stride}
 STRIDE is a model of threats used to identify threats to the cybersecurity of an IT system \cite{stride}. It was initially developed by Praerit Garg and Loren Kohnfelder at Microsoft as part of their threat modeling technique. It is a widely used mnemonic in the security industry to aid in recognizing threats\footnotelink{https://docs.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats}{2021-03-29}. The following are the six properties that make up the acronym and a description of each:
 \begin{itemize}
