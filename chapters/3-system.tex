@@ -23,7 +23,6 @@ While the system is sold and branded by SecuritasHome, they actually have little
 This section describes all the components and software of the system. Initially, all hardware components are described and their functionality. Lastly, all software components of the system are described. Note that the system supports many additional hardware components. The ones outlined below are only the ones part of the starter kit.
 
 \subsection{Hardware components} \label{ch:system:hardware}
-% perhaps references some of these: https://www.securitashome.se/category.html/tillbehor
 The SecuritasHome starter kit contains five hardware components, see figure \ref{fig:hardware-components}. These are described below. Note that the system supports many additional components, like smart locks for example. However, only the components included in the starter kit are covered in this thesis.
 \begin{figure}[!ht]
     \centering
@@ -83,6 +82,13 @@ This device, see figure \ref{fig:door-contact}, senses when a door or window is 
 \textbf{Model number:} SD-8EL \\
 \textbf{FCCID:} GX9SD8ELF1919 \\
 This device is a smoke detector, see figure \ref{fig:smoke-detector}. It communicates with the main panel over radio waves and also includes a siren that triggers when it detects smoke.
+
+\subsubsection{Additional peripherals}
+The system supports many additional devices not included in the \textit{SecuritasHome startpaket}. These include for example water leakage sensors\footnotelink{https://www.securitashome.se/product.html/vattendetektor-2}{2021-05-25}, temperature sensors\footnotelink{https://www.securitashome.se/product.html/temperatursensor}{2021-05-25}, IP cameras over both WiFi\footnotelink{https://www.securitashome.se/product.html/IP-kamera Inne WiFi (liten modell)}{2021-05-25}\footnotelink{https://www.securitashome.se/product.html/ip-kamera-inne-wifi}{2021-05-25}\footnotelink{https://www.securitashome.se/product.html/ip-kamera-utomhus-wifi}{2021-05-25} and PoE\footnotelink{https://www.securitashome.se/product.html/ip-kamera-ute}{2021-05-25}\footnotelink{https://www.securitashome.se/product.html/IP-kamera Ute PoE (dome)}{2021-05-25}, and smart locks.
+
+Additionally, the system supports controlling devices over the Z-Wave protocol\footnotelink{https://en.wikipedia.org/wiki/Z-Wave}{2021-05-25}. This allows a whole plethora of devices to be connected to and controlled by the system.
+
+Note that all devices covered in this section are delimited from this project and thus not covered in the report.
 
 \subsection{Software} \label{ch:system:software}
 This section details the three software entry points from where the user can control the alarm and view its state.
