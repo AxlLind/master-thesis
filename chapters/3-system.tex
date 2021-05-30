@@ -90,10 +90,7 @@ Additionally, the system supports controlling devices over the Z-Wave protocol\f
 
 Note that the devices covered in this section are delimited from this project and thus not covered in the report.
 
-\subsection{Software} \label{ch:system:software}
-This section details the three software entry points from where the user can control the alarm and view its state.
-
-\subsubsection{Web portal}
+\subsection{Software 1: Web portal} \label{ch:system:web-portal}
 The web portal is a web page created by the American company \textit{Alarm.com}, see figure \ref{fig:company-structure}, hosted at \url{https://www.alarm.com/web/system/}. From the landing page, see figure \ref{fig:web-landing-page}, the user can see the following:
 \begin{itemize}
     \item If the system has any issues. This can be seen in the \textit{System OK} box in figure \ref{fig:web-landing-page}.
@@ -116,7 +113,7 @@ Crucially, from the landing page, the user can also easily arm or disarm the sys
     \label{fig:web-arming}
 \end{figure}
 
-\subsubsection{Mobile application}
+\subsection{Software 2: Mobile application} \label{ch:system:mobile-app}
 The system can also be controlled and administrated via a mobile application (see figure \ref{fig:mobile-application}), free to download via the \textit{Google Play Store}, called \textit{Securitas Connect}\footnotelink{https://play.google.com/store/apps/details?id=com.alarm.alarmmobile.android.securitas}{2021-03-30}, and from the \textit{App Store}, for iOS devices, under the same name\footnotelink{https://apps.apple.com/se/app/securitas-connect/id1111700213}{2021-04-14}. As explained previously, while the application is branded by Securitas, it is created and developed by \textit{Alarm.com}. The interface very closely resembles the web portal, see figure \ref{fig:mobile-landing-page}, and offers identical functionality. The only additional feature is real-time notifications of any changes in the system, done via push notifications to your mobile device, as shown in figure \ref{fig:mobile-notification}. This could be for example the door contact sensor triggering, the main panel losing external power due to a power outage, or the alarm being armed/disarmed.
 \begin{figure}[!ht]
     \centering
@@ -135,7 +132,7 @@ The system can also be controlled and administrated via a mobile application (se
     \label{fig:mobile-application}
 \end{figure}
 
-\subsubsection{Local web admin page}
+\subsection{Software 3: Local web admin page} \label{ch:system:local-admin}
 Beyond the two applications created by \textit{Alarm.com} described above, the main panel (see figure \ref{fig:main-panel}) hosts a web server on the local network. This feature is undocumented and is presumably not meant to be used or found by the regular, non-tech-savvy consumer. The page is not hosted on any domain name, as far as the author is aware, and instead has to be accessed directly via the main panel's local IP address on port 80. The landing page of this web server, see figure \ref{fig:local-landing-page}, is quite simple and shows some basic information about the system such as the MAC address, IMEI number of the cellular communication, etc. Beyond that, the site only has two actions the user can do. One is to perform a "\textit{Phone Test}", to presumably test the connection to the mobile 3G network, and the other is a "\textit{Network Scan}". Once the network scan has completed, the page shows a list of all reachable telecommunication towers, see figure \ref{fig:local-network-scan}.
 \begin{figure}[!ht]
     \centering

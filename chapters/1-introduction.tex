@@ -37,15 +37,13 @@ During this thesis a seven-step penetration test methodology, as presented by \c
 The system under consideration of this thesis is very complex. It consists of many features, applications, and physical peripherals. As such, there is unfortunately not enough time within the scope of a degree project to exhaustively consider the full attack surface. Some things were also delimited due to legal reasons. As such the following major delimitations were done early in the project:
 
 \begin{itemize}
-    \item The external cloud servers, hosted by \textit{Alarm.com}. Legally, the security of these could not be assessed.
+    \item The external cloud servers, hosted by \textit{Alarm.com}. Legally, the security of these cannot be assessed without their permission.
     \item The 3G wireless telecommunication. This was primarily due to the custom hardware required and the well-known security of this encrypted protocol.
-    \item The security of additional peripherals not included in the starter kit, see \ref{ch:system:hardware}.
+    \item The security of additional peripherals not included in the starter kit, see \ref{ch:system:hardware}, as well as Z-wave peripherals.
     \item Any attack requiring \textit{physical access} to the system. The goal of the system is to prevent physical access to the home. All components of the system are located inside so if an attacker has physical access to the system then the goal has already failed. Therefore these types of attacks were not deemed interesting to explore. Note that this does not exclude attacks that only require physical proximity, like being outside the door for example.
-    \item The iOS mobile application. This was delimited for two primary reasons, the major one being time and the other being the author not having easy access to an iOS device.
-    \item The Android mobile application. [Note: Maybe?]
+    \item The mobile application, both the iOS and Android versions. This was delimited for two primary reasons, the major one being time and the other being the author not having easy access to an iOS device.
 \end{itemize}
-
-\noindent Additionally, more fine-grained delimitations were done during the exploratory phase of the project. More on this in chapter \ref{ch:threat-model}.
+Additionally, more fine-grained delimitations were done during the exploratory phase of the project. More on this in chapter \ref{ch:threat-model}.
 
 \section{Structure of the thesis} \label{ch:intro:structure}
 This report is structured into the following chapters:
