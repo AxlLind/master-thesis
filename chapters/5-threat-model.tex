@@ -99,7 +99,7 @@ As part of the decomposition of the system, all entry points of the system were 
         \\ \hline
         Local web admin page  & See section \ref{ch:system:software}. Provides very basic functionality but no control over the system. Has an undocumented login page via \textit{HTTP Basic Auth}. Data is transferred over HTTP on the local network.
         \\ \hline
-        Unknown application  & This is a completely undocumented process, listening on TCP port 58098. Closes the connection when sent data. Becomes unresponsive when sent certain data like \texttt{\{\}}, \texttt{[]}, and  \texttt{[1,2,3]} (presumably it crashes).
+        Unknown application  & This is a completely undocumented process, listening on TCP port 58098. Closes the connection when sent data and sends no response.
         \\ \hline
         Main panel  & The physical device features an Ethernet port to connect to the local network, as well as a USB port for unknown purposes. It communicates with other devices over an 868 GHz proprietary \gls{RF} protocol.
         \\ \hline
