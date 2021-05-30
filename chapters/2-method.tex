@@ -1,5 +1,5 @@
 \chapter{Method} \label{ch:method}
-The following chapter describes the method applied in this report. It is based on a seven-step process to penetration testing by \textcite{weidman2014}. In the first part, this method is described. That is followed by how each of these seven steps was applied in this thesis. Additionally, for the threat modeling phase, a method outlined by \textcite{guzman2017iot} was used. This threat modeling process is described below.
+The following chapter describes the method applied in this thesis. It is based on a seven-step process to penetration testing by \textcite{weidman2014}. In the first part, this method is described. That is followed by how each of these seven steps was applied in this thesis. Additionally, for the threat modeling phase, a method outlined by \textcite{guzman2017iot} was used. This threat modeling process is also described below.
 
 \section{Penetration Testing methodology}
 In their book \citetitle{weidman2014}, \citeauthor{weidman2014} details a seven-step process for penetration testing \cite{weidman2014}. This section firstly gives a brief description of all seven steps and lastly outlines how each step was performed in this thesis. Included in \citeauthor{weidman2014}'s method for penetration testing are the following seven steps:
@@ -27,10 +27,10 @@ Threat modeling involves building a thorough picture of the system and identifyi
 The next step in the methodology involves taking the threats identified in the threat model and trying to find which of them present actual security vulnerabilities in the system. The way this was done varied greatly depending on the type of threat that was examined. For the threats relating to \gls{RF} communicatio, for example, this involved physically capturing radio signals using a \gls{SDR}. For other threats, like investigating insecure network services, this involved using vulnerability scanners like \textit{Nmap}\footnotelink{https://nmap.org/}{2021-05-30}. Additionally, manual analysis was a big part of most of the vulnerability analysis. More about the practical penetration testing methods used in this thesis can be found in chapter \ref{ch:pentesting}, under the method section of each penetration test.
 
 \subsection{Exploitation}
-\todo
+After a certain vulnerability in the system was confirmed, attempts to exploit the vulnerability were made. These were done to try and assess the consequences of the vulnerability and what type of results an attacker could achieve by exploiting this vulnerability.
 
 \subsection{Post Exploitation}
-Many vulnerabilities were found was a result of the previous two steps. However, none of them presented any opportunities for post exploitation. As such, this section of the pentesting methodology was not applied in this thesis.
+Several vulnerabilities were found was a result of the previous two steps. However, none of them presented any opportunities for post exploitation. As such, this section of the pentesting methodology was not applied in this thesis.
 
 \subsection{Reporting}
 \todo
