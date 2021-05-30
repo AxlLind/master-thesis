@@ -24,13 +24,13 @@ The information-gathering phase was done in several steps, the first one being \
 Threat modeling involves building a thorough picture of the system and identifying all possible threats to the system. There are many different threat modeling techniques. The threat modeling technique used in this thesis is one outlined in the book \citetitle{guzman2017iot}. In their book, authors \citeauthor{guzman2017iot}, describe a threat modeling technique for IoT devices, which features a 6 step process \cite{guzman2017iot}. This threat modeling technique is applied in this thesis. More on this in section \ref{ch:method:threat-modeling}. The threat model is presented in chapter \ref{ch:threat-model}.
 
 \subsection{Vulnerability Analysis}
-\todo
+The next step in the methodology involves taking the threats identified in the threat model and trying to find which of them present actual security vulnerabilities in the system. The way this was done varied greatly depending on the type of threat that was examined. For the threats relating to \gls{RF} communicatio, for example, this involved physically capturing radio signals using a \gls{SDR}. For other threats, like investigating insecure network services, this involved using vulnerability scanners like \textit{Nmap}\footnotelink{https://nmap.org/}{2021-05-30}. Additionally, manual analysis was a big part of most of the vulnerability analysis. More about the practical penetration testing methods used in this thesis can be found in chapter \ref{ch:pentesting}, under the method section of each penetration test.
 
 \subsection{Exploitation}
 \todo
 
 \subsection{Post Exploitation}
-\todo
+Many vulnerabilities were found was a result of the previous two steps. However, none of them presented any opportunities for post exploitation. As such, this section of the pentesting methodology was not applied in this thesis.
 
 \subsection{Reporting}
 \todo

@@ -584,7 +584,7 @@
     \\ \fi
 
     Examiner: \@examinersFirstname\space\@examinersLastname\\
-    \quad\@examinersSchool\\
+    \@examinersSchool\\
     \ifx\@hostcompany\@empty\relax\else Host company: \@hostcompany \\ \fi
     \ifx\@hostorganization\@empty\relax\else Host organization: \@hostorganization \\ \fi
     \ifx\@alttitle\empty\relax\else Swedish title: %
