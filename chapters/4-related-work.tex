@@ -72,3 +72,17 @@ Like the system covered in section \ref{ch:related-work:lupus}, the Egardia syst
 In their thesis, authors \citeauthor{verisurethesis} examine the cybersecurity of a home alarm system from \textit{Verisure}. The company claims to sell the most widely installed home alarm in Europe\footnotelink{https://www.verisure.se/english}{2021-04-12}, installed in over 350 000 homes in Sweden alone. Their thesis mostly focuses on the SCTP communication between the main panel and the external Verisure servers, as well as the web security of the Verisure software platform. The authors found several \gls{CSRF} vulnerabilities, allowing an attacker to disarm the system and create new users.
 
 The examined system from Versiure, from the point of view of a user, is similar to the one in this report. It offers almost the same components and features. From a technical perspective, however, the two systems are quite different. There is no overlap in the hardware components and much of the network technologies used are different. For example, the main panel in the Verisure system communicates over a broadband connection using the SCTP protocol, in contrast to the system in this thesis that uses 3G telecommunication. Their work does, however, show that the cybersecurity of similar products in the industry may be lacking.
+
+\section{Related work 4: \textit{Hacking The IoT (Internet of Things) - PenTesting RF Operated Devices}}
+\cite{hacking-the-iot-talk}
+
+\section{Related work 5: \textit{RF Exploitation: IoT and OT Hacking with Software-Defined Radio}}
+At the 2019 RSA Conference, an annual conference on computer security\footnotelink{https://www.rsaconference.com/}{2021-06-01}, authors \citeauthor{rf-exploitation-talk} gave a talk on RF hacking of IoT devices \cite{rf-exploitation-talk}. In the talk, they cover the IoT landscape, citing how the number of IoT devices is expected to grow 31 billion by 2020 and that the total IoT market is forecast to be valued at 520 billion USD by the year 2021. Additionally, they cover the typical IoT threat model, consisting of a controlling device, typically a smart phone. This device typically talks to a cloud service, which in turn is connected to a global network (e.g the internet). Lastly, the cloud service, using the global network, talks to and manages the "things". In this model, there is often a need for wireless communication and this is often achieved through radio frequency communication. The authors claim that the radio wave spectrum and RF communication is like the world wide web in the 90s, in terms of security, with obvious security flaws riddled all over the place.
+
+The authors go on to outline a process for how to assess the RF security of a device. Initially, one has to establish how the device operates normally. How do they connect? What is the operating frequency? They present the phases of an RF attack as the following:
+\begin{enumerate}
+    \item Information gathering
+    \item Frequency
+    \item Modulation
+    \item Transmission
+\end{enumerate}
