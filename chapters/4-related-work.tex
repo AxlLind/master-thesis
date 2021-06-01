@@ -81,8 +81,12 @@ At the 2019 RSA Conference, an annual conference on computer security\footnoteli
 
 The authors go on to outline a process for how to assess the RF security of a device. Initially, one has to establish how the device operates normally. How do they connect? What is the operating frequency? They present the phases of an RF attack as the following:
 \begin{enumerate}
-    \item Information gathering
-    \item Frequency
-    \item Modulation
-    \item Transmission
+    \item \textbf{Information gathering}. Use \gls{OSINT} techniques like the FCC submission to find information about the device. If you are luck this could include documentation detailing at what frequency the device communicates, with what modulation etc.
+    
+    \item \textbf{Frequency}. Using programs like GQRX\footnotelink{https://gqrx.dk/}{2021-06-01} to analyze the frequency spectrum from a Software Defined Radio (SDR). By analyzing the spectrum while the devices are communicating one can find the center frequency.
+    
+    \item \textbf{Modulation}. Modulation is the technique of encoding binary data in a radio carrier wave. There are three basic types. In this step one has to figure out which modulation scheme the system uses by either visually inspecting the recorded signals from your SDR or through official documentation discovered in the first step.
+    
+    \item \textbf{Transmission}. When you know the frequency and modulation type you can now send arbitrary signals to the device. They mention tools the GnuRadio\footnotelink{https://www.gnuradio.org/}{2021-06-01} and the RfCat library\footnotelink{https://github.com/atlas0fd00m/rfcat}{2021-06-01} to do so.
 \end{enumerate}
+
