@@ -27,21 +27,21 @@ The OWASP top 10 for web vulnerabilities is one of the most used sources of the 
 Note that some of these threats were not considered in this report. Some of these fall under the delimited areas described in section \ref{ch:intro:delimitations}, such as number three for example. Others were not considered simply due to time constraints. However, the OWASP IoT top 10 list was the basis for the identified threats against the system, along with the STRIDE model described in section \ref{ch:method:stride}.
 
 \section{ETSI EN 303 645, a standard for IoT security of consumer products}
-The \textit{European Telecommunications Standards Institute} (ETSI) is a standardization organization within information and communication technology (ICT). It is responsible for standardizing key technologies like GSM, 3G, 4G, and 5G. One of the standards produced by ETSI is of relevance to this report. In their standard \citetitle{etsi-iot-standard}, they list 13 provisions that should be followed by manufacturers selling consumer facing IoT products \cite{etsi-iot-standard}. While the standard is certainly not a guarantee that the system is secure, it provides a set of best practices of common security issues to avoid in IoT systems. Within the provisions are sub-provisions which will not be covered in full detail here. What follows is an overview of the 13 provisions outlined by ETSI.
+The \textit{European Telecommunications Standards Institute} (ETSI) is a standardization organization within information and communication technology (ICT). It is responsible for standardizing key technologies like GSM, 3G, 4G, and 5G. One of the standards produced by ETSI is of relevance to this report. In their standard \citetitle{etsi-iot-standard}, they list 13 provisions that should be followed by manufacturers selling consumer facing IoT products \cite{etsi-iot-standard}. While following the standard is certainly not a guarantee that the system is secure, it provides a set of best practices of common security issues to avoid in IoT systems. Within the provisions are sub-provisions which will not be covered in full detail here. What follows is an overview of the 13 provisions as outlined by ETSI \cite{etsi-iot-standard}.
 \begin{enumerate}
-    \item \textbf{No universal default passwords}. All passwords have to be either supplied by the user or by default unique per device. A password that works across all devices should be avoided.
+    \item \textbf{No universal default passwords}. All passwords have to be either supplied by the user or unique per device. No password should work across all devices. Additionally, they warn against schemes were the password is generated using publicly available information like the systems MAC address or WiFi SSID.
     
-    \item \textbf{Implement a means to manage reports of vulnerabilities}. The manufacturer should make publicly available, a process for disclosing vulnerabilities. It should include contact information for disclosing security issues and information on timelines during a disclosure process.
+    \item \textbf{Implement a means to manage reports of vulnerabilities}. The manufacturer should make publicly available a process for disclosing vulnerabilities. It should include contact information for disclosing security issues and information on timelines during a disclosure process.
     
-    \item \textbf{Keep software updated}. The manufacturer needs to implement a way of sending out security patches in a timely manner and make sure that this is done often.
+    \item \textbf{Keep software updated}. The manufacturer needs to implement a way of sending out security patches in a timely manner and make sure that this done in reaction to discovered vulnerabilities.
     
-    \item \textbf{Securely store sensitive security parameters}. This could be encrypted storage or dedicated security components implemented in hardware for example. Additionally, it states that hard-coded critical security parameters in the device software should not be used. 
+    \item \textbf{Securely store sensitive security parameters}. This could be encrypted storage or dedicated security components implemented in hardware for example. Additionally, it states that hard-coded critical security parameters in the device software should not be used.
     
     \item \textbf{Communicate securely}. Best practices in encrypted communications should be used in all communication, including using reviewed and well-tested cryptography methods.
     
-    \item \textbf{Minimize exposed attack surfaces}. The standard recommends adhering to the \textit{principle of least privilege}, meaning one should aim to give each actor the minimum privilege needed to perform its function. Additionally, it states that all unused or unnecessary network and logical interfaces should be disabled.
+    \item \textbf{Minimize exposed attack surfaces}. The standard recommends adhering to the \textit{principle of least privilege}, meaning one should aim to give each actor the minimum privilege needed to perform its function. Additionally, it states that all unused or unnecessary network and logical interfaces should be disabled. Only software services that are absolutely required for the functionality of the device should be enabled.
     
-    \item \textbf{Ensure software integrity}. The system should use verify that its firmware by using secure boot mechanisms. Additionally, if a discrepancy is noted the system should report it to the user/administrator and should not connect to any wider network than the minimum required to send the notification.
+    \item \textbf{Ensure software integrity}. The system should verify its firmware by using secure boot mechanisms. Additionally, if a discrepancy is noted the system should report it to the user/administrator and should not connect to any wider network than the minimum required to send the notification.
     
     \item \textbf{Ensure that personal data is secure}. Personal data in transmit between devices should be properly secured using cryptography best practices.
     
@@ -51,11 +51,10 @@ The \textit{European Telecommunications Standards Institute} (ETSI) is a standar
     
     \item \textbf{Make it easy for users to delete user data}. It should be clear to the user how they can delete their data and functionality should be provided giving them access to do so. Additionally, users should be given clear notification of when their data has been deleted.
     
-    \item \textbf{Make installation and maintenance of devices easy}.
+    \item \textbf{Make installation and maintenance of devices easy}. The installation and maintainence of the system should involve avoid decisions from the user as much as possible and follow security best practices on usability. Additionally, the manufacturer is responsible for providing adequate guidance on how to set up the system securely as well as how to check that it is set up securely.
     
-    \item \textbf{Validate input data}.
+    \item \textbf{Validate input data}. The system has to validate all inputs from any interface is reads from. It should never assume that the input is benign.
 \end{enumerate}
-
 
 \section{Related work 1: \textit{Examination of LUPUS-Electronics devices}} \label{ch:related-work:lupus}
 This section details a security analysis of a very similar system, built on similar hardware from Climax Technology. The study was conducted by members of \textit{Embedded Lab Vienna for IoT \& Security} (ELVIS)\footnotelink{https://www.elvis.science/}{2021-04-09}, a project at the University of Applied Sciences Campus Vienna in Austria.
