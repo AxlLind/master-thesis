@@ -121,15 +121,23 @@ As part of the decomposition of the system, all entry points of the system were 
 \end{table}
 
 \section{Identified Threats} \label{ch:threat-model:threats}
-The following section contains all identified threats. These are categorized after the threat categories of the STRIDE model. For an explanation of the model and a description of each category see section \ref{ch:method:stride}. Note the additional category \textit{Supply chain issues}, which is a proposed extension to the model when threat modeling IoT devices \cite{guzman2017iot} (see section \ref{ch:method:threat-modeling}).
+\newcommand{\owaspref}[1]{OWASP IoT \##1}
+\newcommand{\etsiref}[1]{ETSI \##1}
+
+The following section contains all identified threats. These are categorized after the threat categories of the STRIDE model. For an explanation of the model and a description of each category see section \ref{ch:method:stride}. Note the additional category \textit{Supply chain issues}, which is a proposed extension to the model when threat modeling IoT devices \cite{guzman2017iot} (see section \ref{ch:method:threat-modeling}). The \textit{OWASP IoT top 10} \cite{owasp-iot-top10} was referenced to identify common threats that the system might be vulnerable to (see section \ref{ch:related-work:owasp}). In these threats the OWASP IoT number is referenced as \textit{\owaspref{n}}. Similarly, the \textit{ETSI EN 303 645} standard \cite{etsi-iot-standard} for IoT manufacturers was used to identify threats (see section \ref{ch:related-work:etsi}). These are referenced below as \textit{\etsiref{n}}. Many of the threats related to the RF communication were identified through the references in section \ref{ch:related-work:hacking-iot} and \ref{ch:related-work:rf-exploit}.
 
 \subsection{Spoofing Identity}
 \begin{itemize}
-    \item Spoof the remote keypad.
-    \item Spoof the door contact sensor.
-    \item Spoof the smoke detector.
-    \item Spoof the motion detection camera.
-    \item Spoof the remote keypad.
+    \item Spoof the remote keypad through the RF communication.
+    \\ (\owaspref{7})
+    \item Spoof the door contact sensor through the RF communication.
+    \\ (\owaspref{7})
+    \item Spoof the smoke detector through the RF communication.
+    \\ (\owaspref{7})
+    \item Spoof the motion detection camera through the RF communication.
+    \\ (\owaspref{7})
+    \item Spoof the remote keypad through the RF communication.
+    \\ (\owaspref{7})
 \end{itemize}
 
 \subsection{Tampering with Data}
@@ -137,7 +145,9 @@ The following section contains all identified threats. These are categorized aft
     \item Replay attack on the RF communication through message blocking via jamming.
     \item Change and tamper with RF packets in transit.
     \item Send valid RF packets to the main panel, triggering events, without proper authorization.
-    \item Make the main panel use its Ethernet connection instead of 3G telecommunication.
+    \\ (\owaspref{7}, \etsiref{5})
+    \item Make the main panel fallback to its Ethernet connection instead of 3G telecommunication.
+    \\ (\etsiref{9})
 \end{itemize}
 
 \subsection{Repudiation}
@@ -149,31 +159,45 @@ The following section contains all identified threats. These are categorized aft
 \subsection{Information Disclosure}
 \begin{itemize}
     \item Information leak in the packets of the \gls{RF} protocol.
-    \item Insecure or non-existent encryption in the \gls{RF} protocol.
+    \\ (\etsiref{5})
+    \item Weak or non-existent encryption in the \gls{RF} protocol.
+    \\ (\etsiref{5})
     \item Password sniffing on the local webserver.
+    \\ (\etsiref{5})
     \item Leaking the existence of the system by continuous RF traffic.
     \item Extracting firmware from the main panel.
+    \\ (\owaspref{10})
 \end{itemize}
 
 \subsection{Denial of Service}
 \begin{itemize}
     \item Jamming of the RF protocol.
+    \\ (\etsiref{5})
     \item Stop the alarm from triggering until after you've left the premises.
     \item Spamming traffic to the local webserver.
+    \\ (\owaspref{2})
     \item Crash the main panel or parts of the main panel.
+    \\ (\etsiref{13})
     \item Crash the external devices through the RF communication.
+    \\ (\owaspref{3}, \etsiref{13})
 \end{itemize}
 
 \subsection{Elevation of Privilege}
 \begin{itemize}
-    \item Insecure credentials used on the local webserver's login page.
+    \item Insecure credentials used in the system.
+    \\ (\owaspref{1}, \owaspref{9}, \etsiref{1})
     \item Password attack on the local webserver login page.
+    \\ (\owaspref{1}, \owaspref{9})
     \item Send valid RF packets to the main panel without proper authorization.
-    \item Gain an authenticated connection to the main panel.
+    \\ (\owaspref{7})
+    \item Gain an authenticated connection to the main panel through one of the network services.
+    \\ (\owaspref{2}, \etsiref{6})
 \end{itemize}
 
 \subsection{Supply chain issues}
 \begin{itemize}
     \item Using official applications from Climax Technology to access the system, like their mobile app Vesta Home 5 \footnotelink{https://play.google.com/store/apps/details?id=com.climax.vestasmarthome.eu}{2021-04-14}.
+    \\ (\owaspref{3})
     \item Using debug applications from Climax Technology to access the system. These can be found on their website \footnotelink{https://climax.com.tw/downloads/}{2021-04-14}.
+    \\ (\owaspref{3})
 \end{itemize}
