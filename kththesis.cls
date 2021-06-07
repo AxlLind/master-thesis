@@ -623,7 +623,7 @@
 
 \newcommand{\acknowlegmentssignature}{
   \begin{flushleft}
-    Stockholm, \MONTH\enspace\the\year\\
+    Stockholm, \MONTH\space\the\year\\
     \@authorsFirstname\space\@authorsLastname
   \end{flushleft}
 \cleardoublepage
