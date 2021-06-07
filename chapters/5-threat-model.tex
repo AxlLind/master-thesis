@@ -15,6 +15,8 @@ As part of the first phase of our threat modeling technique, assets of the syste
         \\
         Arm/disarm state of the system
         \\
+        State of triggers, like the sabotage sensors
+        \\
         Door contact sensor state
         \\
         Authentication to the admin web application
@@ -32,7 +34,7 @@ As part of the first phase of our threat modeling technique, assets of the syste
 This section contains an architecture overview of the system. Included in this are three components presented below. First is a list of all identified use cases of the system. The second is a diagram visually presenting all components of the system, how they interact, and the data flow of the system. Lastly, a table of all identified technologies used in the system is presented.
 
 \subsection{Use cases}
-As part of the architecture overview, all use cases of the system were identified. These are the use cases a regular user would encounter when using the system normally. The use cases are documented in table \ref{tb:use-cases}.
+As part of the architecture overview, all use cases of the system were identified. These are the use cases a regular user would encounter when using the system normally. The system, from the perspective of a user, is quite simple. The use cases are documented in table \ref{tb:use-cases}.
 \begin{table}[!ht]
     \centering
     \begin{tabular}{l}
@@ -46,6 +48,8 @@ As part of the architecture overview, all use cases of the system were identifie
         The user arms/disarms the system via the mobile app.
         \\
         The user receives a notification about a state change in the system.
+        \\
+        The user requests a photo be taken by the camera.
         \\ \hline
     \end{tabular}
     \caption{Use cases of the system.}
@@ -73,7 +77,7 @@ Table \ref{tb:system-technologies} contains all identified technologies present 
         \\ \hline
         F1 RF protocol  & A proprietary \gls{RF} protocol from the hardware manufacturer, Climax Technology. Uses 868 MHz frequency. This is an undocumented protocol, meaning no technical specifications have been publicized.
         \\ \hline
-        Mongoose web server  & An open-source web server, in C. Used by the main panel to host the local admin web page, version unknown. Information leaked via the HTTP \textit{Server} header on some endpoints.
+        Mongoose web server  & An open-source web server, in C. Used by the main panel to host the local admin web page, version unknown. Information leaked via the HTTP \texttt{Server} header on some endpoints.
         \\ \hline
         ARM architecture  & The CPU of the main panel is an ARM (little-endian) SOC system from \textit{Grain Media}.
         \\ \hline
@@ -91,7 +95,7 @@ This section presents the results of the fourth step of the threat modeling tech
 
 \subsection{Entry points}
 As part of the decomposition of the system, all entry points of the system were identified. These are essentially all points of contact an attacker could probe. The entry points are documented in table \ref{tb:entry-points}.
-\begin{table}[!p]
+\begin{table}[!ht]
     \centering
     \begin{tabularx}{\textwidth}{l X}
         \hline
@@ -99,13 +103,13 @@ As part of the decomposition of the system, all entry points of the system were 
         \\ \hline
         Local web admin page  & See section \ref{ch:system:local-admin}. Provides very basic functionality but no control over the system. Has an undocumented login page via \textit{HTTP Basic Auth}. Data is transferred over HTTP on the local network.
         \\ \hline
-        Unknown application  & This is a completely undocumented process, listening on TCP port 58098. Closes the connection when sent data and sends no response.
+        Unknown application  & This is a completely undocumented process, listening on TCP port 58098. Does not send any response.
         \\ \hline
-        Main panel  & The physical device features an Ethernet port to connect to the local network, as well as a USB port for unknown purposes. It communicates with other devices over an 868 GHz proprietary \gls{RF} protocol.
+        Main panel  & The physical device features an Ethernet port to connect to the local network, as well as a USB port for unknown purposes. It communicates with other devices over an 868 MHz proprietary \gls{RF} protocol.
         \\ \hline
         3G telecommunication  & The device has a SIM card and communicates over the 3G telecommunication network.
         \\ \hline
-        \gls{RF} communication  & The device talks to the other peripherals over a proprietary \gls{RF} protocol, called \textit{F1}\footnotelink{www.climax.com.tw/new/f1-features-new.php}{2021-04-02}. There seems to be little to no information available to the public about this protocol, other than its operating frequency of 868 GHz.
+        \gls{RF} communication  & The device talks to the other peripherals over a proprietary \gls{RF} protocol, called \textit{F1}. There seems to be little to no information available to the public about this protocol, other than its operating frequency of 868 MHz.
         \\ \hline
         USB port  & The device has a USB 2.0 Type-A connector.
         \\ \hline
@@ -162,6 +166,7 @@ The following section contains all identified threats. These are categorized aft
 
 \subsection{Elevation of Privilege}
 \begin{itemize}
+    \item Insecure credentials used on the local webserver's login page.
     \item Password attack on the local webserver login page.
     \item Send valid RF packets to the main panel without proper authorization.
     \item Gain an authenticated connection to the main panel.
