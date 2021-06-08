@@ -2,7 +2,7 @@
 This final chapter contains the conclusions drawn from the result of this thesis and a conclusion about the systems overall security. Additionally, a discussion about future work that could be done on the security of the examined system is presented.
 
 \section{Conclusion}
-\todo
+Is the SecuritasHome Home Alarm System secure against cyberattacks? Largely, the answer to the research question has to be \textbf{no}. It is clear that the manufacturer has out some considerable thought into security. They use tamper sensors on all devices to protect against physical attacks, it has a battery to protect against a power outage, they use 3G telecommunication so as to not rely on the local network connection, they are able to detect jamming attacks, and they use some kind of encryption in the RF protocol (the cryptographic security of which is still in question). However, due to a glaring security flaw in the RF protocol, not protecting against replay attacks, these measures are largely made irrelevant. It goes to show how one mistake is all it takes to completely negate the security of a system. Additionally, there are some bad practices found in the system, in clear violation of the ETSI EN 303 645 standard for IoT manufactures. One of them is leaving several network services on the system. They seemingly have no bearing on the functionality of the system and only serve to increase its attack surface, which is cause to worry.
 
 \section{Future work} \label{ch:conclusion:related-work}
 % A guide for future thesis students
