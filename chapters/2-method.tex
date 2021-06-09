@@ -38,6 +38,8 @@ The identified vulnerabilities were reported to Securitas. Responsible disclosur
 Securitas were contacted through their customer support, as they do not publish any way to report security vulnerabilities on their website. They were given 90 days to fix and respond to the vulnerability before the report was published, as is the industry standard. However, the thesis presentation was held before that, as that was a requirement from KTH. Due to the nature of the identified vulnerabilities, withholding information on how to perform them was not possible during the presentation. Instead, participants were asked to not spread the information further until the thesis was published.
 
 \section{Threat modeling for IoT devices} \label{ch:method:threat-modeling}
+Threat modeling is a wide field. According to authors \citeauthor{XIONG201953} the field lacks a common ground \cite{XIONG201953}. There are competing definitions of the term, and they conclude that it is used in many different and sometimes competing ways. However, the definition used in this report is the following, as suggested in their report: \enquote{threat modeling is a process that can be used to analyze potential attacks or threats, and can also be supported by threat libraries or attack taxonomies}. The authors also note that there are two categories of threat models, \textit{manual/automatic} and \textit{formal/graphical} threat modeling. The former category is applied in this thesis. Lastly, some threat models aim to be general and others more specific to the type of system examined \citeauthor{XIONG201953}. This thesis uses a threat modeling technique of the latter category, which is specified towards IoT systems.
+
 In their book \citetitle{guzman2017iot}, authors \citeauthor{guzman2017iot}, outline a six-step process for threat modeling IoT devices. This is the threat modeling technique applied in this thesis, the result of which can be found in chapter \ref{ch:threat-model}. There are many different threat modeling techniques and this one was chosen due to it being customized specifically for IoT devices. Here are the six steps of the process listed and described:
 \begin{enumerate}
     \item \textit{Identify IoT assets}. This initial step involves identifying all assets of the system you have an interest in protecting. Essentially, this list should include anything that could be a target or something negatively affected by an attack. This aids in identifying what an attacker might focus on when crafting an attack or pentesting the system. Can be presented as a simple table describing each asset.
@@ -52,6 +54,11 @@ In their book \citetitle{guzman2017iot}, authors \citeauthor{guzman2017iot}, out
     
     \item \textit{Rate the Threats}. For each documented threat, one rates its severity. The authors propose using a system like DREAD to give a score to each threat, based on a few different criteria like damage potential and reproducibility.
 \end{enumerate}
+The authors suggest as a final step rating the threats using the DREAD model. However, due to the time constraints of this project that was deemed excessive. There were more promising identified threats than there was time to explore them all within the scope of this thesis. Therefore, intuition was relied up on to determine which threats to explore by answering the following questions:
+\begin{itemize}
+    \item What is the potential impact of the system being vulnerable to the threat?
+    \item How likely is it that the threat can be successfully exploited?
+\end{itemize}
 
 \section{The STRIDE model} \label{ch:method:stride}
 STRIDE is a model of threats used to identify threats to the cybersecurity of an IT system \cite{stride}. It was initially developed by Praerit Garg and Loren Kohnfelder at Microsoft as part of their threat modeling technique. It is a widely used mnemonic in the security industry to aid in recognizing threats\footnotelink{https://docs.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats}{2021-03-29}. The following are the six properties that make up the acronym and a description of each:
