@@ -1,4 +1,4 @@
-\chapter{Conclusion \& Future Work} \label{ch:conclusion}
+\chapter{Conclusions \& Future Work} \label{ch:conclusion}
 This final chapter contains the conclusions drawn from the result of this thesis and a conclusion about the systems overall security. Additionally, a discussion about future work that could be done on the security of the examined system is presented.
 
 \section{Conclusion}
@@ -9,7 +9,7 @@ Additionally, there are some bad practices found in the system, in clear violati
 In conclusion, the system is vulnerable to RF replay attacks. This lets an attacker disarm the system. While many security measures have been taken, this completely negates its security.
 
 \section{Future work} \label{ch:conclusion:related-work}
-There is a lot left to examine regarding the security of the SecuritasHome smart alarm system. This project focused on the RF protocol as well as the systems network services. The results, however, opened up many additional promising avenues to explore. Due to time constraints these could not be included in this thesis and several interesting aspects had to be delimited.
+There is a lot left to examine regarding the security of the SecuritasHome smart alarm system. This project focused on the RF protocol as well as the systems network services. The results, however, showed many other promising avenues to explore. Due to time constraints these could not be included in this thesis and several interesting aspects had to be delimited.
 
 Firstly, somehow acquiring the firmware of the system would open the door for a lot of interesting research. Without it, analyzing the behavior and purpose of the \textit{58098/tcp} network service for example is very difficult. That would probably be possible to ascertain by reverse engineering the firmware. One possible technique to acquire the firmware, since it is not published on the manufacturers website, would be to solder off the flash memory from the PCB and read its contents. However, that is a quite risky process that would certainly permanently break the system and possibly the flash memory in the process. The system supports over-the-air firmware updates, however, no firmware update was recorded during this entire project, lasting about 6 months. Catching an OTA firmware update in the act and thereby acquiring the firmware is therefore quite difficult.
 
