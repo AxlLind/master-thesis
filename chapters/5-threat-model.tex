@@ -124,7 +124,7 @@ As part of the decomposition of the system, all entry points of the system were 
 \newcommand{\owaspref}[1]{OWASP IoT \##1}
 \newcommand{\etsiref}[1]{ETSI \##1}
 
-The following section contains all identified threats. These are categorized after the threat categories of the STRIDE model. For an explanation of the model and a description of each category see section \ref{ch:method:stride}. Note the additional category \textit{Supply chain issues}, which is a proposed extension to the model when threat modeling IoT devices \cite{guzman2017iot} (see section \ref{ch:method:threat-modeling}). The \textit{OWASP IoT top 10} \cite{owasp-iot-top10} was referenced to identify common threats that the system might be vulnerable to (see section \ref{ch:related-work:owasp}). In these threats the OWASP IoT number is referenced as \textit{\owaspref{n}}. Similarly, the \textit{ETSI EN 303 645} standard \cite{etsi-iot-standard} for IoT manufacturers was used to identify threats (see section \ref{ch:related-work:etsi}). These are referenced below as \textit{\etsiref{n}}. Many of the threats related to the RF communication were identified through the references in section \ref{ch:related-work:hacking-iot} and \ref{ch:related-work:rf-exploit}.
+The following section contains all identified threats. These are categorized after the threat categories of the STRIDE model. For an explanation of the model and a description of each category see section \ref{ch:method:stride}. Note the additional category \textit{Supply chain issues}, which is a proposed extension to the model when threat modeling IoT devices \cite{guzman2017iot} (see section \ref{ch:method:threat-modeling}). The \textit{OWASP IoT top 10} \cite{owasp-iot-top10} was referenced to identify common threats that the system might be vulnerable to (see section \ref{ch:related-work:owasp}). In these threats, the OWASP IoT number is referenced as \textit{\owaspref{n}}. Similarly, the \textit{ETSI EN 303 645} standard \cite{etsi-iot-standard} for IoT manufacturers was used to identify threats (see section \ref{ch:related-work:etsi}). These are referenced below as \textit{\etsiref{n}}. Many of the threats related to the RF communication were identified through the references in section \ref{ch:related-work:hacking-iot} and \ref{ch:related-work:rf-exploit}.
 
 \subsection{Spoofing Identity}
 \begin{itemize}
@@ -146,7 +146,7 @@ The following section contains all identified threats. These are categorized aft
     \item Change and tamper with RF packets in transit.
     \item Send valid RF packets to the main panel, triggering events, without proper authorization.
     \\ (\owaspref{7}, \etsiref{5})
-    \item Make the main panel fallback to its Ethernet connection instead of 3G telecommunication.
+    \item Make the main panel fall back to its Ethernet connection instead of 3G telecommunication.
     \\ (\etsiref{9})
 \end{itemize}
 
