@@ -32,16 +32,12 @@
 \examinersSchool{\schoolAcronym{EECS}}
 \examinersDepartment{Division of Network and Systems Engineering}
 
-% External Supervisor
-%\supervisorBsLastname{[EFTERNAMN]}
-%\supervisorBsFirstname{[NAMN]}
-%\supervisorBsEmail{temp@fm.se}
-%\supervisorBsOrganization{Försvarsmakten}
-\hostcompany{Försvarsmakten (Swedish Armed Forces)}
+\hostorganization{Försvarsmakten (Swedish Armed Forces)}
 
 \addbibresource{references.bib}
 
 \begin{document}
+\includepdf[pages=1,pagecommand={\thispagestyle{empty}},width=\paperwidth]{kth-cover.pdf}
 
 \input{chapters/preface}
 \label{pg:lastPageofPreface}
@@ -58,8 +54,7 @@
 
 \printbibliography[title=References]
 
-\appendix
-\renewcommand{\chaptermark}[1]{\markboth{Appendix \thechapter\relax:\thinspace\relax#1}{}}
+\includepdf[pages=2,pagecommand={\thispagestyle{empty}},width=\paperwidth]{kth-cover.pdf}
 
 \divainfo{pg:lastPageofPreface}
 
