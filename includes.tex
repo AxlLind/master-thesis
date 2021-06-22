@@ -1,46 +1,31 @@
 \usepackage[style=numeric,sorting=none,backend=biber]{biblatex}
 \usepackage[acronym, section=section, nonumberlist, nomain, nopostdot]{glossaries}
 \usepackage[perpage,symbol]{footmisc}
-\usepackage[parfill]{parskip} % Linebreak paragraphs instead of indent
-
-\usepackage{pdfpages} % used to include the KTH cover
-\usepackage{longtable}
+\usepackage[parfill]{parskip} % for linebreak paragraphs
 \usepackage{booktabs}
 \usepackage{enumitem}
-
-\usepackage{xcolor}     % Remove after \todo has been removed
+\usepackage{pdfpages}   % For including the KTH cover
 \usepackage{tabularx}   % For additional table formatting
 \usepackage{subcaption} % For subfigure support
-\usepackage{pgfmath}    % --math engine
-\usepackage{array}      % For table wrapping
 \usepackage{graphicx}   % Support for images
-\usepackage{float}      % Support for more flexible floating box positioning
+\usepackage{float}      % Support flexible floating box positioning
 \usepackage{setspace}   % For fine-grained control over line spacing
 \usepackage{listings}   % For source code listing
-\usepackage{tabularx}   % For simple table stretching
-\usepackage{multirow}   % Support for multirow colums in tables
 \usepackage{url}        % Support for breaking URLs
+\usepackage{minted}     % For source code highlighting
+\usepackage{csquotes}   % For including quotes
 \usepackage{hyperref}
 \usepackage[all]{hypcap}  % prevents an issue related to hyperref and caption linking
+\hyphenpenalty=15000\tolerance=1000 % to reduce hyphenation
+
 %% setup hyperref to use the darkblue color on links
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
 \hypersetup{colorlinks,breaklinks,
             linkcolor=darkblue,urlcolor=darkblue,
             anchorcolor=darkblue,citecolor=darkblue}
 
-%% Some definitions of used colors
-\hyphenpenalty=15000\tolerance=1000 % to reduce hyphenation
-\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
-\definecolor{darkred}{rgb}{0.4,0.0,0.0}
-\definecolor{red}{rgb}{0.7,0.0,0.0}
-\definecolor{lightgrey}{rgb}{0.8,0.8,0.8} 
-\definecolor{grey}{rgb}{0.6,0.6,0.6}
-\definecolor{darkgrey}{rgb}{0.4,0.4,0.4}
-\definecolor{aqua}{rgb}{0.0, 1.0, 1.0}
-
-\usepackage[cache=false]{minted} %% For source code highlighting
+% set the syntax highlighting style
 \usemintedstyle{vs}
-
-\usepackage{csquotes} % Recommended by biblatex
 
 % set the chapter header
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
@@ -48,8 +33,5 @@
 % to get rolling footnote numbers
 \counterwithout{footnote}{chapter}
 
-\newcolumntype{P}[1]{>{\endgraf\vspace*{-\baselineskip}}p{#1}}
-
-% custom macros
+% custom footnote macro
 \newcommand{\footnotelink}[2]{\footnote{\url{#1} | Accessed #2}}
-\newcommand{\todo}[0]{\colorbox{orange}{TODO}}
