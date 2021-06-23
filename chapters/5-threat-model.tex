@@ -56,12 +56,15 @@ As part of the architecture overview, all use cases of the system were identifie
     \label{tb:use-cases}
 \end{table}
 
+\subsection{Architecture diagram}
+Figure \ref{fig:system-overview} presents a visual overview of the system, from a technical perspective. All identified components of the system are included, as well as how they all communicate, with what protocol, etc.
 \begin{figure}[!p]
     \centering
     \includegraphics[width=\textwidth]{images/5-threat-model/system-overview.png}
     \caption{A data flow diagram of the system.}
     \label{fig:system-overview}
 \end{figure}
+
 
 \subsection{System Technologies}
 Table \ref{tb:system-technologies} contains all identified technologies present in the system. There are undoubtedly additional technologies used but these are the ones identified and relevant.
@@ -91,9 +94,8 @@ Table \ref{tb:system-technologies} contains all identified technologies present 
 \end{table}
 
 \section{Decomposition of the system}
-This section presents the results of the fourth step of the threat modeling technique. Lastly, all identified entry points of the system are listed.
+This section presents the results of the fourth step of the threat modeling technique. This includes all identified entry points of the system. Considering the architecture of the system, and the delimitations of this thesis, only the entry points of the main panel are presented.
 
-\subsection{Entry points}
 As part of the decomposition of the system, all entry points of the system were identified. These are essentially all points of contact an attacker could probe. The entry points are documented in table \ref{tb:entry-points}.
 \begin{table}[!ht]
     \centering
