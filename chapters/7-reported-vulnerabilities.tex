@@ -1,0 +1,26 @@
+\chapter{Reported Vulnerabilities} \label{ch:reported-vulns}
+This chapter explains which vulnerabilities were reported to the manufacturer as well as a detailed timeline of events that took place during the responsible disclosure process and the two CVEs connected to this thesis.
+
+Two vulnerabilities identified in chapter \ref{ch:pentesting} were deemed sever enough to report to the manufacturer:
+\begin{enumerate}
+    \item The RF replay-attack vulnerability identified in section \ref{ch:pentesting:replay}, which allows an attacker to for example disarm an armed system.
+    \item The repudiation vulnerability arising from the absence of notifications to the owner of the system during an ongoing RF jamming-attack (see section \ref{ch:pentesting:rf-jamming}).
+\end{enumerate}
+
+\section{Timeline of events}
+The following outlines the timeline of events during the responsible disclosure process.
+
+\begin{itemize}
+    \item \verb![2021-06-15]! Securitas is contacted through their customer support and responsible disclosure form, and are notified that vulnerabilities might exist in the system.
+    \item \verb![2021-07-07]! Terms are agreed upon by both parties and the two vulnerabilities are officially disclosed and described in detail to the manufacturer.
+    \newpage
+    \item \verb![2021-08-23]! Securitas acknowledges that both vulnerabilities are present in the system. Additionally, Securitas confirms that their hardware vendor has started developing a security patch. A bug bounty is offered and the two vulnerabilities are deemed by the manufacturer to have a CVSS score of \texttt{5.5} and \texttt{4.5} respectively.
+    \item \verb![2021-08-27]! The two vulnerabilities are reported to MITRE and two CVEs are requested.
+    \item \verb![2021-08-29]! MITRE responds and accepts both CVE requests. Two CVE ids are reserved:
+        \begin{itemize}
+            \item \textbf{CVE-2021-40170} for the RF replay-attack vulnerability.
+            \item \textbf{CVE-2021-40171} for the RF jamming-attack vulnerability.
+        \end{itemize}
+    \item \verb![2021-09-21]! A security patch is rolled out to all systems and Securitas' customers are officially notified via email of the vulnerabilities as well as the security patch.
+    \item \verb![2021-09-25]! The responsible disclosure window ends and the thesis as well as the two CVEs are officially published.
+\end{itemize}
